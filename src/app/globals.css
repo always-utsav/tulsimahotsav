@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Noto+Serif+Devanagari:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-parchment: #F3E8D0;
+  --color-parchment-2: #ECE0C4;
+  --color-ink: #191817;
+  --color-maroon: #651F27;
+  --color-saffron: #C96B2C;
+  --color-indigo: #263A59;
+  --color-green: #566447;
+  --color-gold: #B28A45;
+
+  --font-devanagari: 'Noto Serif Devanagari', serif;
+  --font-fraunces: 'Fraunces', serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-cinzel-dec: 'Cinzel Decorative', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+html, body {
+  background-color: #F3E8D0;
+  color: #191817;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-devanagari {
+  font-family: var(--font-devanagari);
+}
+
+.font-fraunces {
+  font-family: var(--font-fraunces);
+}
+
+/* Custom radial gradient utility */
+.bg-radial-gradient {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* High-end custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3E8D0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #651F27;
+  border-radius: 4px;
+  border: 1px solid #B28A45;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C96B2C;
+}

@@ -1,0 +1,91 @@
+export interface SponsorCategory {
+  titleHindi: string;
+  titleEnglish: string;
+  tier: 'title' | 'powered_by' | 'associate' | 'media';
+  sponsors: {
+    id: string;
+    name: string;
+    logo?: string;
+    placeholderLabel: string;
+    subtitleHindi: string;
+  }[];
+}
+
+export const PARTNERS_DATA: SponsorCategory[] = [
+  {
+    titleHindi: 'मुख्य साझेदार',
+    titleEnglish: 'TITLE PARTNER',
+    tier: 'title',
+    sponsors: [
+      {
+        id: 'p1',
+        name: 'Title Partner',
+        placeholderLabel: 'Official Title Partner',
+        subtitleHindi: 'आधिकारिक मुख्य साझेदार',
+      },
+    ],
+  },
+  {
+    titleHindi: 'सहयोगी',
+    titleEnglish: 'POWERED BY',
+    tier: 'powered_by',
+    sponsors: [
+      {
+        id: 'p2',
+        name: 'Associate Sponsor A',
+        placeholderLabel: 'Powered By Partner A',
+        subtitleHindi: 'आधिकारिक सह-प्रायोजक A',
+      },
+      {
+        id: 'p3',
+        name: 'Associate Sponsor B',
+        placeholderLabel: 'Powered By Partner B',
+        subtitleHindi: 'आधिकारिक सह-प्रायोजक B',
+      },
+    ],
+  },
+  {
+    titleHindi: 'सहयोगी साझेदार',
+    titleEnglish: 'ASSOCIATE PARTNERS',
+    tier: 'associate',
+    sponsors: [
+      {
+        id: 'p4',
+        name: 'Cultural Partner',
+        placeholderLabel: 'Cultural Institution Partner',
+        subtitleHindi: 'सांस्कृतिक संस्थान भागीदार',
+      },
+      {
+        id: 'p5',
+        name: 'Hospitality Partner',
+        placeholderLabel: 'Hospitality & Venue Partner',
+        subtitleHindi: 'आतिथ्य एवं स्थल भागीदार',
+      },
+      {
+        id: 'p6',
+        name: 'Digital Partner',
+        placeholderLabel: 'Digital Platform Partner',
+        subtitleHindi: 'डिजिटल प्लेटफॉर्म भागीदार',
+      },
+    ],
+  },
+  {
+    titleHindi: 'मीडिया एवं प्रचार भागीदार',
+    titleEnglish: 'MEDIA & PUBLICITY PARTNERS',
+    tier: 'media',
+    sponsors: [
+      {
+        id: 'p7',
+        name: 'Print Media Partner',
+        placeholderLabel: 'Official Print Media Partner',
+        subtitleHindi: 'आधिकारिक प्रिंट मीडिया भागीदार',
+      },
+      {
+        id: 'p8',
+        name: 'Radio & Audio Partner',
+        placeholderLabel: 'Official Radio Partner',
+        subtitleHindi: 'आधिकारिक रेडियो भागीदार',
+      },
+    ],
+  },
+];
