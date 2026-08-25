@@ -55,6 +55,7 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ currentFrameIndex, onLoa
     if (!ctx) return;
 
     let isSubscribed = true;
+    let lastDrawnFrame = -1;
 
     const render = () => {
       if (!isSubscribed) return;
@@ -70,38 +71,42 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = ({ currentFrameIndex, onLoa
       }
 
       const activeFrameIndex = Math.round(currentFrameRef.current);
-      const img = preloaderRef.current?.getFrame(activeFrameIndex);
 
-      if (img && ctx) {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
-        const width = canvas.width / dpr;
-        const height = canvas.height / dpr;
+      if (activeFrameIndex !== lastDrawnFrame) {
+        const img = preloaderRef.current?.getFrame(activeFrameIndex);
 
-        // Clear canvas
-        ctx.fillStyle = '#0a0204';
-        ctx.fillRect(0, 0, width, height);
+        if (img && ctx) {
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const width = canvas.width / dpr;
+          const height = canvas.height / dpr;
 
-        // Always COVER full screen without letterboxing on both Mobile & Desktop
-        const imgWidth = img.naturalWidth || 2560;
-        const imgHeight = img.naturalHeight || 1440;
-        const imgAspect = imgWidth / imgHeight;
-        const canvasAspect = width / height;
+          // Clear canvas
+          ctx.fillStyle = '#0a0204';
+          ctx.fillRect(0, 0, width, height);
 
-        let drawWidth: number;
-        let drawHeight: number;
+          // Always COVER full screen without letterboxing on both Mobile & Desktop
+          const imgWidth = img.naturalWidth || 2560;
+          const imgHeight = img.naturalHeight || 1440;
+          const imgAspect = imgWidth / imgHeight;
+          const canvasAspect = width / height;
 
-        if (canvasAspect > imgAspect) {
-          drawWidth = width;
-          drawHeight = width / imgAspect;
-        } else {
-          drawHeight = height;
-          drawWidth = height * imgAspect;
+          let drawWidth: number;
+          let drawHeight: number;
+
+          if (canvasAspect > imgAspect) {
+            drawWidth = width;
+            drawHeight = width / imgAspect;
+          } else {
+            drawHeight = height;
+            drawWidth = height * imgAspect;
+          }
+
+          const offsetX = (width - drawWidth) / 2;
+          const offsetY = (height - drawHeight) / 2;
+
+          ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+          lastDrawnFrame = activeFrameIndex;
         }
-
-        const offsetX = (width - drawWidth) / 2;
-        const offsetY = (height - drawHeight) / 2;
-
-        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       }
 
       animationFrameIdRef.current = requestAnimationFrame(render);

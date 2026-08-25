@@ -16,16 +16,18 @@ import { HERO_CONFIG } from '@/config/heroConfig';
 import { SITE_CONFIG } from '@/config/siteConfig';
 import { COMPETITIONS, FEATURED_NIGHTS } from '@/data/eventsData';
 import { HOME_GALLERY_IMAGES } from '@/data/galleryData';
+import { getHeroCompleted, setHeroCompleted } from '@/utils/heroState';
 
 import { Sparkles, MapPin, ArrowRight } from 'lucide-react';
 
 export default function Home() {
-  const [loadProgress, setLoadProgress] = useState(0);
-  const [isInitialReady, setIsInitialReady] = useState(false);
+  const initialCompleted = getHeroCompleted();
+  const [loadProgress, setLoadProgress] = useState(initialCompleted ? 1 : 0);
+  const [isInitialReady, setIsInitialReady] = useState(initialCompleted);
 
   // Continuous target frame index (1 to 290)
-  const targetFrameRef = useRef<number>(1);
-  const [currentFrame, setCurrentFrame] = useState(1);
+  const targetFrameRef = useRef<number>(initialCompleted ? HERO_CONFIG.totalFrames : 1);
+  const [currentFrame, setCurrentFrame] = useState(initialCompleted ? HERO_CONFIG.totalFrames : 1);
   const touchStartYRef = useRef<number | null>(null);
 
   // Sync state for rendering react overlay & navbar
@@ -46,11 +48,15 @@ export default function Home() {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  // Desktop Mouse Wheel & Mobile Touch Interceptor (LOCKED PRESERVED SCROLL-JAIL HERO ENGINE)
+  // Desktop Mouse Wheel & Mobile Touch Interceptor (SCROLL-LATCHED HERO ENGINE)
   useEffect(() => {
     const TOTAL_FRAMES = HERO_CONFIG.totalFrames;
     const SENSITIVITY = 0.35;
-    const TOUCH_SENSITIVITY = 0.75;
+    const isMobile = window.innerWidth <= 768;
+    // Slower mobile progression so hero takes ~5-6 deliberate finger swipes
+    const TOUCH_SENSITIVITY = isMobile ? 0.18 : 0.75;
+
+    let hasHeldFinalFrame = false;
 
     const handleWheel = (e: WheelEvent) => {
       const current = targetFrameRef.current;
@@ -72,7 +78,7 @@ export default function Home() {
       }
     };
 
-    // Mobile Touch Event Handling
+    // Mobile Touch Event Handling (Scroll-Latched Final Frame Hold)
     const handleTouchStart = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         touchStartYRef.current = e.touches[0].clientY;
@@ -89,14 +95,25 @@ export default function Home() {
       const scrollY = window.scrollY;
 
       if (deltaY > 0) {
+        // Swiping DOWN
         if (current < TOTAL_FRAMES) {
           if (e.cancelable) e.preventDefault();
-          targetFrameRef.current = Math.min(TOTAL_FRAMES, current + deltaY * TOUCH_SENSITIVITY);
+          const next = Math.min(TOTAL_FRAMES, current + deltaY * TOUCH_SENSITIVITY);
+          targetFrameRef.current = next;
+          if (next >= TOTAL_FRAMES) {
+            hasHeldFinalFrame = false;
+          }
+        } else if (current >= TOTAL_FRAMES && !hasHeldFinalFrame) {
+          // HOLD AT FINAL FRAME for the current gesture before allowing page scroll
+          if (e.cancelable) e.preventDefault();
+          hasHeldFinalFrame = true;
         }
       } else if (deltaY < 0) {
+        // Swiping UP
         if (scrollY <= 15 && current > 1) {
           if (e.cancelable) e.preventDefault();
           targetFrameRef.current = Math.max(1, current + deltaY * TOUCH_SENSITIVITY);
+          hasHeldFinalFrame = false;
         }
       }
     };
@@ -127,6 +144,13 @@ export default function Home() {
 
   const normalizedProgress = (currentFrame - 1) / (HERO_CONFIG.totalFrames - 1);
 
+  // Mark hero completed once user reaches past 0.95 progress
+  useEffect(() => {
+    if (normalizedProgress >= 0.95) {
+      setHeroCompleted(true);
+    }
+  }, [normalizedProgress]);
+
   return (
     <div className="relative bg-[#0a0204] text-[#f7f3e8] min-h-screen selection:bg-[#e5c158] selection:text-[#0a0204] overflow-x-hidden font-sans">
       {/* Code-based Pure CSS Paper Grain Texture */}
@@ -140,7 +164,7 @@ export default function Home() {
       {/* Persistent Navbar */}
       <Navbar scrollProgress={normalizedProgress} />
 
-      {/* 1. ORIGINAL UNTOUCHED CINEMATIC HERO SECTION */}
+      {/* 1. CINEMATIC HERO SECTION */}
       <section className="relative w-screen h-screen overflow-hidden bg-[#0a0204]">
         <HeroCanvas
           currentFrameIndex={currentFrame}
@@ -155,13 +179,13 @@ export default function Home() {
         {/* Orbital System transition accent */}
         <DecorativeOrbitalSystem variant="center" />
 
-        {/* SECTION 01 — FESTIVAL INTRODUCTION (Tighter, reduced top gap) */}
+        {/* SECTION 01 — FESTIVAL INTRODUCTION */}
         <section className="relative pt-12 pb-20 md:pt-16 md:pb-24 px-4 sm:px-8 lg:px-12 max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col items-center gap-5"
           >
             {/* Institution Badge */}
@@ -180,7 +204,7 @@ export default function Home() {
               एक उत्सव। अनेक स्वर।
             </h2>
 
-            {/* English Subtitle — Balanced vertical spacing */}
+            {/* English Subtitle */}
             <p className="mt-1 font-cinzel text-sm sm:text-lg font-bold tracking-[0.22em] text-[#C96B2C] uppercase">
               A festival of words, ideas, music, art and expression.
             </p>
@@ -207,7 +231,6 @@ export default function Home() {
 
         {/* SECTION 02 — FESTIVAL DATES SECTION */}
         <section className="relative py-28 px-4 sm:px-8 bg-gradient-to-r from-[#3A0913] via-[#4A1219] to-[#3A0913] border-y border-[#e5c158]/30 text-center overflow-hidden">
-          {/* LAYERED TRANSPARENT assets_no_bg MANDALA ELEMENTS */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-85 z-0">
             <MandalaMotion size={680} opacity={0.85} />
           </div>
@@ -283,10 +306,10 @@ export default function Home() {
               return (
                 <motion.div
                   key={event.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 25 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="group relative border-b border-[#B28A45]/30 pb-16"
                 >
                   <Link
@@ -326,12 +349,14 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Event Logo Container with Elegant Maroon Border (#651F27) */}
+                    {/* Event Logo Container */}
                     <div className="w-full sm:w-auto flex justify-center shrink-0">
                       <div className="relative w-52 sm:w-72 md:w-80 h-52 sm:h-72 md:h-80 pointer-events-none p-3 sm:p-4 rounded-3xl border-2 border-[#651F27]/70 bg-[#F3E8D0]/40 shadow-md group-hover:border-[#651F27] transition-all">
                         <img
                           src={event.illustration}
                           alt={event.titleEnglish}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain filter drop-shadow-[0_8px_20px_rgba(101,31,39,0.2)] group-hover:scale-105 transition-all duration-500 rounded-2xl"
                         />
                       </div>
@@ -374,10 +399,10 @@ export default function Home() {
                 return (
                   <motion.div
                     key={night.id}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-40px' }}
-                    transition={{ duration: 0.7 }}
+                    transition={{ duration: 0.6 }}
                     className={`flex flex-col ${
                       isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
                     } items-center gap-8 lg:gap-12 p-6 sm:p-10 rounded-3xl border border-[#e5c158]/35 bg-[#28080F]/90 shadow-[0_10px_35px_rgba(0,0,0,0.4)] overflow-hidden`}
@@ -386,6 +411,8 @@ export default function Home() {
                       <img
                         src={night.illustration}
                         alt={night.titleEnglish}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover opacity-95 hover:scale-105 transition-transform duration-700"
                       />
                     </div>
@@ -425,42 +452,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 05 — PAST GLIMPSES */}
+        {/* SECTION 05 — PAST GLIMPSES (CENTERED FESTIVAL MOMENTS HEADING) */}
         <section className="relative py-24 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-            <div>
-              <span className="font-cinzel text-xs font-bold tracking-[0.3em] text-[#C96B2C] uppercase mb-2">
-                FESTIVAL MOMENTS · स्मृतियाँ
-              </span>
-              <h2
-                className="font-serif text-3xl sm:text-5xl font-bold text-[#651F27]"
-                style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-              >
-                महोत्सव की कुछ झलकियाँ
-              </h2>
-            </div>
-            <Link
-              href="/gallery"
-              className="inline-flex items-center gap-2 font-cinzel text-xs font-bold tracking-[0.2em] text-[#C96B2C] hover:text-[#651F27] uppercase"
+          <div className="flex flex-col items-center text-center mb-12 gap-2">
+            <span className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.3em] text-[#C96B2C] uppercase block mb-1">
+              FESTIVAL MOMENTS · स्मृतियाँ
+            </span>
+            <h2
+              className="font-serif text-3xl sm:text-5xl font-bold text-[#651F27] leading-tight"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
-              <span>EXPLORE FULL GALLERY →</span>
-            </Link>
+              महोत्सव की कुछ झलकियाँ
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {HOME_GALLERY_IMAGES.slice(0, 3).map((img, idx) => (
               <motion.div
                 key={img.id}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
                 className="group relative rounded-2xl overflow-hidden border border-[#B28A45]/30 bg-[#F4EAD3] shadow-lg"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={img.src}
                     alt={img.titleEnglish}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#191817] via-transparent to-transparent opacity-75" />
@@ -478,6 +499,15 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 font-cinzel text-xs sm:text-sm font-bold tracking-[0.2em] text-[#C96B2C] hover:text-[#651F27] uppercase transition-colors"
+            >
+              <span>EXPLORE FULL GALLERY →</span>
+            </Link>
           </div>
         </section>
 

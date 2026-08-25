@@ -51,8 +51,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav
         className={`w-full px-4 sm:px-6 lg:px-10 transition-all duration-500 border-b ${
           isGlobalState
-            ? 'bg-[#F4EAD3]/95 backdrop-blur-xl border-[#B28A45]/40 shadow-[0_4px_20px_rgba(101,31,39,0.12)] py-2 sm:py-2.5'
-            : 'bg-gradient-to-b from-[#0a0204]/90 via-[#0a0204]/40 to-transparent border-transparent py-3 sm:py-4'
+            ? 'bg-[#F4EAD3] lg:bg-[#F4EAD3]/95 lg:backdrop-blur-xl border-[#B28A45]/40 shadow-[0_4px_20px_rgba(101,31,39,0.12)] py-2 sm:py-2.5'
+            : 'bg-[#F4EAD3] lg:bg-gradient-to-b lg:from-[#0a0204]/90 lg:via-[#0a0204]/40 lg:to-transparent border-b-[#B28A45]/30 lg:border-transparent py-3 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between lg:justify-center">
@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Link
               href="/"
               className={`font-serif text-base font-bold transition-colors ${
-                isGlobalState ? 'text-[#651F27]' : 'text-[#F3E8D0]'
+                isGlobalState ? 'text-[#651F27]' : 'text-[#651F27] lg:text-[#F3E8D0]'
               }`}
             >
               तुलसी महोत्सव 2026
@@ -152,11 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg border transition-colors ${
-                isGlobalState
-                  ? 'border-[#B28A45]/40 bg-[#651F27] text-[#F3E8D0]'
-                  : 'border-[#e5c158]/30 bg-[#1a050b]/80 text-[#f7f3e8]'
-              }`}
+              className="p-2 rounded-lg border transition-colors border-[#B28A45]/40 bg-[#651F27] text-[#F3E8D0]"
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -165,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </nav>
 
-      {/* Full-Screen Mobile Drawer */}
+      {/* Full-Screen Mobile Drawer — Solid Light Cream Background */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -173,7 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden fixed inset-0 top-[52px] z-40 bg-[#F4EAD3]/98 backdrop-blur-2xl border-b-2 border-[#B28A45]/50 px-6 py-8 overflow-y-auto flex flex-col justify-between"
+            className="lg:hidden fixed inset-0 top-[52px] z-40 bg-[#F4EAD3] border-b-2 border-[#B28A45]/50 px-6 py-8 overflow-y-auto flex flex-col justify-between"
           >
             <div className="flex flex-col gap-3">
               <span className="font-cinzel text-[10px] tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-2">

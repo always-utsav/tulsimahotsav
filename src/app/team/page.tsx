@@ -81,7 +81,7 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* SECTION 2: FESTIVAL LEADERSHIP (5 Cards in 1 Row on Desktop) */}
+        {/* SECTION 2: FESTIVAL LEADERSHIP (2 Cards/Row on Mobile, 5 Cards/Row on Desktop) */}
         <div>
           <div className="text-center mb-10">
             <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
@@ -95,20 +95,23 @@ export default function TeamPage() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
             {leadership.map((member, idx) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)] max-w-[240px] p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all"
               >
                 {/* Member photo frame */}
-                <div className="relative w-28 sm:w-32 h-36 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-4">
+                <div className="relative w-20 sm:w-32 h-26 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover rounded-lg"
                   />
                   <img
@@ -118,17 +121,17 @@ export default function TeamPage() {
                   />
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
+                  <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
                     LEADERSHIP
                   </span>
-                  <h3 className="font-serif text-lg font-bold text-[#651F27]">{member.name}</h3>
+                  <h3 className="font-serif text-sm sm:text-lg font-bold text-[#651F27] leading-tight">{member.name}</h3>
                   <span
-                    className="font-serif text-xs text-[#191817]/85 font-medium mt-1"
+                    className="font-serif text-[11px] sm:text-xs text-[#191817]/85 font-medium mt-0.5 leading-tight"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     {member.roleHindi}
                   </span>
-                  <span className="font-sans text-[11px] font-semibold text-[#651F27] mt-0.5">
+                  <span className="font-sans text-[10px] sm:text-[11px] font-semibold text-[#651F27] mt-0.5 leading-tight">
                     {member.roleEnglish}
                   </span>
                 </div>
@@ -137,7 +140,7 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* SECTION 3: DOMAIN HEADS (5 Cards per row on desktop, naturally centered incomplete final row) */}
+        {/* SECTION 3: DOMAIN HEADS (2 Cards/Row on Mobile, 5 Cards/Row on Desktop) */}
         <div>
           <div className="text-center mb-10">
             <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
@@ -151,19 +154,22 @@ export default function TeamPage() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
             {coreLeads.map((member, idx) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.04 }}
-                className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)] max-w-[240px] p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.03 }}
+                className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
               >
-                <div className="relative w-28 sm:w-32 h-36 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-4">
+                <div className="relative w-20 sm:w-32 h-26 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover rounded-lg"
                   />
                   <img
@@ -174,18 +180,18 @@ export default function TeamPage() {
                 </div>
                 <div className="flex flex-col items-center">
                   {member.subCategory && (
-                    <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
+                    <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
                       {member.subCategory}
                     </span>
                   )}
-                  <h3 className="font-serif text-base font-bold text-[#651F27] leading-snug">{member.name}</h3>
+                  <h3 className="font-serif text-xs sm:text-base font-bold text-[#651F27] leading-tight">{member.name}</h3>
                   <span
-                    className="font-serif text-xs text-[#191817]/85 font-medium mt-1"
+                    className="font-serif text-[10px] sm:text-xs text-[#191817]/85 font-medium mt-0.5 leading-tight"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     {member.roleHindi}
                   </span>
-                  <span className="font-sans text-[11px] font-semibold text-[#651F27] mt-0.5">
+                  <span className="font-sans text-[9.5px] sm:text-[11px] font-semibold text-[#651F27] mt-0.5 leading-tight">
                     {member.roleEnglish}
                   </span>
                 </div>

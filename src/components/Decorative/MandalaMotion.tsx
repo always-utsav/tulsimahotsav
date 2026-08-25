@@ -24,6 +24,8 @@ export const MandalaMotion: React.FC<MandalaMotionProps> = ({
       <motion.img
         src="/assets_no_bg/ornamental-mandala.webp"
         alt=""
+        loading="lazy"
+        decoding="async"
         animate={{ rotate: 360 }}
         transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
         className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(101,31,39,0.15)]"
@@ -33,6 +35,8 @@ export const MandalaMotion: React.FC<MandalaMotionProps> = ({
       <motion.img
         src="/assets_no_bg/madala-animation-inner-element.webp"
         alt=""
+        loading="lazy"
+        decoding="async"
         animate={{ rotate: -360 }}
         transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
         className="absolute inset-[14%] w-[72%] h-[72%] object-contain"
