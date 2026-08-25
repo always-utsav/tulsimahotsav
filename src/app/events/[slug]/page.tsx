@@ -110,12 +110,12 @@ export default function EventDetailPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 pointer-events-none"
+                className="relative w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 pointer-events-none rounded-[14px] overflow-hidden"
               >
                 <img
                   src={event.illustration}
                   alt={event.titleEnglish}
-                  className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] rounded-2xl"
+                  className="w-full h-full object-cover rounded-[14px] overflow-hidden shadow-lg border border-[#e5c158]/30"
                 />
               </motion.div>
             </div>

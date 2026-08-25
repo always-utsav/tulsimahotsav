@@ -81,7 +81,7 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* SECTION 2: FESTIVAL LEADERSHIP (THEN) */}
+        {/* SECTION 2: FESTIVAL LEADERSHIP (5 Cards in 1 Row on Desktop) */}
         <div>
           <div className="text-center mb-10">
             <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
@@ -95,17 +95,17 @@ export default function TeamPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
             {leadership.map((member, idx) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 shadow-lg"
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)] max-w-[240px] p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all"
               >
                 {/* Member photo frame */}
-                <div className="relative w-32 sm:w-36 h-40 sm:h-44 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
+                <div className="relative w-28 sm:w-32 h-36 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-4">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
@@ -117,18 +117,18 @@ export default function TeamPage() {
                     className="absolute inset-0 w-full h-full object-fill pointer-events-none z-10"
                   />
                 </div>
-                <div className="flex flex-col text-center sm:text-left">
-                  <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest">
+                <div className="flex flex-col items-center">
+                  <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
                     LEADERSHIP
                   </span>
-                  <h3 className="font-serif text-2xl font-bold text-[#651F27] mt-0.5">{member.name}</h3>
+                  <h3 className="font-serif text-lg font-bold text-[#651F27]">{member.name}</h3>
                   <span
-                    className="font-serif text-sm text-[#191817]/85 font-medium mt-1"
+                    className="font-serif text-xs text-[#191817]/85 font-medium mt-1"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     {member.roleHindi}
                   </span>
-                  <span className="font-sans text-xs font-semibold text-[#651F27]">
+                  <span className="font-sans text-[11px] font-semibold text-[#651F27] mt-0.5">
                     {member.roleEnglish}
                   </span>
                 </div>
@@ -137,7 +137,7 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* SECTION 3: CORE TEAM MEMBERS */}
+        {/* SECTION 3: DOMAIN HEADS (5 Cards per row on desktop, naturally centered incomplete final row) */}
         <div>
           <div className="text-center mb-10">
             <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
@@ -151,14 +151,14 @@ export default function TeamPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
             {coreLeads.map((member, idx) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="p-6 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
+                transition={{ duration: 0.5, delay: idx * 0.04 }}
+                className="w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)] max-w-[240px] p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
               >
                 <div className="relative w-28 sm:w-32 h-36 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-4">
                   <img
@@ -173,14 +173,19 @@ export default function TeamPage() {
                   />
                 </div>
                 <div className="flex flex-col items-center">
-                  <h3 className="font-serif text-lg font-bold text-[#651F27]">{member.name}</h3>
+                  {member.subCategory && (
+                    <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
+                      {member.subCategory}
+                    </span>
+                  )}
+                  <h3 className="font-serif text-base font-bold text-[#651F27] leading-snug">{member.name}</h3>
                   <span
                     className="font-serif text-xs text-[#191817]/85 font-medium mt-1"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     {member.roleHindi}
                   </span>
-                  <span className="font-sans text-[11px] font-semibold text-[#651F27] mt-1">
+                  <span className="font-sans text-[11px] font-semibold text-[#651F27] mt-0.5">
                     {member.roleEnglish}
                   </span>
                 </div>
