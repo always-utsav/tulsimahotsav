@@ -44,7 +44,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleHindi: 'उपाध्यक्ष',
     roleEnglish: 'Vice President',
     category: 'leadership',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/baldev.webp',
   },
   {
     id: 'l3',
@@ -89,19 +89,20 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Treasurer',
     category: 'core_lead',
     subCategory: 'Treasurer',
-    image: '/assets_png/sample.png',
-  },
-  {
-    id: 'dh3',
-    name: 'Abhay Sharma',
-    roleHindi: 'कोषाध्यक्ष',
-    roleEnglish: 'Treasurer',
-    category: 'core_lead',
-    subCategory: 'Treasurer',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/gaurang-sharma.webp',
   },
 
   // SPONSOR
+  {
+    id: 'dh3',
+    name: 'Abhay Sharma',
+    roleHindi: 'प्रायोजन प्रमुख',
+    roleEnglish: 'Sponsor Lead',
+    category: 'core_lead',
+    subCategory: 'Sponsor',
+    image: '/assets_webp/abhay-sharma.webp',
+  },
+
   {
     id: 'dh4',
     name: 'Dhruv Verma',
@@ -129,7 +130,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Management Lead',
     category: 'core_lead',
     subCategory: 'Management',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Ashish-Singh-Rajawat_.webp',
   },
   {
     id: 'dh7',
@@ -156,7 +157,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Management Lead',
     category: 'core_lead',
     subCategory: 'Management',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Rashi Rajoriya_.webp',
   },
 
   // COMPETITION
@@ -167,7 +168,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Competition Lead',
     category: 'core_lead',
     subCategory: 'Competition',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Om Chaturvedi.webp',
   },
   {
     id: 'dh11',
@@ -194,7 +195,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Competition Lead',
     category: 'core_lead',
     subCategory: 'Competition',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Ayushi Kushwah.webp',
   },
 
   // CONTENT & DOCUMENTATION
@@ -205,7 +206,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Content & Documentation',
     category: 'core_lead',
     subCategory: 'Content & Documentation',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Rohit.webp',
   },
   {
     id: 'dh15',
@@ -214,7 +215,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Content & Documentation',
     category: 'core_lead',
     subCategory: 'Content & Documentation',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Umesh Kumar Mishra.webp',
   },
   {
     id: 'dh16',
@@ -232,7 +233,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Content & Documentation',
     category: 'core_lead',
     subCategory: 'Content & Documentation',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Astha Sapre.webp',
   },
 
   // TECHNICAL & SOCIAL MEDIA
@@ -252,7 +253,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Technical & Social Media',
     category: 'core_lead',
     subCategory: 'Technical & Social Media',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/adarsh-mishra.webp',
   },
   {
     id: 'dh20',
@@ -272,7 +273,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Promotions & PR',
     category: 'core_lead',
     subCategory: 'Promotions & PR',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Aryan-Shrivastava_.webp',
   },
   {
     id: 'dh22',
@@ -281,7 +282,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Promotions & PR',
     category: 'core_lead',
     subCategory: 'Promotions & PR',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/satvik dubey.webp',
   },
   {
     id: 'dh23',
@@ -290,7 +291,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Promotions & PR',
     category: 'core_lead',
     subCategory: 'Promotions & PR',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Jagrati Singhal.webp',
   },
   {
     id: 'dh24',
@@ -299,7 +300,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Promotions & PR',
     category: 'core_lead',
     subCategory: 'Promotions & PR',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Jayshree Rathore.webp',
   },
 
   // GRAPHIC DESIGNING
@@ -310,7 +311,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Graphic Designing Lead',
     category: 'core_lead',
     subCategory: 'Graphic Designing',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Shreya Singh_.webp',
   },
   {
     id: 'dh26',
@@ -339,12 +340,21 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Videography & Editing Lead',
     category: 'core_lead',
     subCategory: 'Videography & Editing',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Prem sharma_.webp',
+  },
+  {
+    id: 'dh29',
+    name: 'Krash Dandotiya',
+    roleHindi: 'वीडियो संपादन प्रमुख',
+    roleEnglish: 'Videography & Editing Lead',
+    category: 'core_lead',
+    subCategory: 'Videography & Editing',
+    image: '/assets_webp/KrasH Dandotiya.webp',
   },
 
   // DECORATION & CREATIVE
   {
-    id: 'dh29',
+    id: 'dh30',
     name: 'Tanushka Sengar',
     roleHindi: 'सज्जा एवं रचनात्मक प्रमुख',
     roleEnglish: 'Decoration & Creative Lead',

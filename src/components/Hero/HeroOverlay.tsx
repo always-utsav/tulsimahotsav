@@ -85,7 +85,8 @@ export const HeroOverlay: React.FC<HeroOverlayProps> = ({ currentFrame }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-cinzel text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[0.03em] leading-[1.05] text-[#f7f3e8] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] uppercase"
+              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-[#f7f3e8] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               {activePhase.title}
             </motion.h1>
@@ -140,4 +141,4 @@ export const HeroOverlay: React.FC<HeroOverlayProps> = ({ currentFrame }) => {
       )}
     </div>
   );
-};
+}

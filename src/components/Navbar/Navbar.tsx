@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         className={`w-full px-4 sm:px-6 lg:px-10 transition-all duration-500 border-b ${
           isGlobalState
             ? 'bg-[#F4EAD3] lg:bg-[#F4EAD3]/95 lg:backdrop-blur-xl border-[#B28A45]/40 shadow-[0_4px_20px_rgba(101,31,39,0.12)] py-2 sm:py-2.5'
-            : 'bg-[#F4EAD3] lg:bg-gradient-to-b lg:from-[#0a0204]/90 lg:via-[#0a0204]/40 lg:to-transparent border-b-[#B28A45]/30 lg:border-transparent py-3 sm:py-4'
+            : 'bg-gradient-to-b from-[#0a0204]/90 via-[#0a0204]/40 to-transparent border-transparent py-3 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between lg:justify-center">
@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Link
               href="/"
               className={`font-serif text-base font-bold transition-colors ${
-                isGlobalState ? 'text-[#651F27]' : 'text-[#651F27] lg:text-[#F3E8D0]'
+                isGlobalState ? 'text-[#651F27]' : 'text-[#F3E8D0]'
               }`}
             >
               तुलसी महोत्सव 2026
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               );
             })}
 
-            {/* REGISTER NOW Button — Vertically centered 2-line text, clean gap, NO external-link icon */}
+            {/* REGISTER NOW Button */}
             <a
               href={registerItem.href}
               target="_blank"
@@ -152,7 +152,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg border transition-colors border-[#B28A45]/40 bg-[#651F27] text-[#F3E8D0]"
+              className={`p-2 rounded-lg border transition-colors ${
+                isGlobalState
+                  ? 'border-[#B28A45]/40 bg-[#651F27] text-[#F3E8D0]'
+                  : 'border-[#e5c158]/30 bg-[#1a050b]/80 text-[#f7f3e8]'
+              }`}
               aria-label="Toggle navigation menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -161,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </nav>
 
-      {/* Full-Screen Mobile Drawer — Solid Light Cream Background */}
+      {/* Full-Screen Mobile Drawer — Environment-Sensitive (Hero vs Site Context) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -169,7 +173,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden fixed inset-0 top-[52px] z-40 bg-[#F4EAD3] border-b-2 border-[#B28A45]/50 px-6 py-8 overflow-y-auto flex flex-col justify-between"
+            className={`lg:hidden fixed inset-0 top-[52px] z-40 border-b-2 px-6 py-8 overflow-y-auto flex flex-col justify-between ${
+              isGlobalState
+                ? 'bg-[#F4EAD3] border-[#B28A45]/50 text-[#191817]'
+                : 'bg-[#1a050b]/98 backdrop-blur-2xl border-[#e5c158]/40 text-[#f7f3e8]'
+            }`}
           >
             <div className="flex flex-col gap-3">
               <span className="font-cinzel text-[10px] tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-2">
@@ -187,8 +195,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`flex items-center justify-between py-3 border-b border-[#B28A45]/20 group transition-colors ${
-                      isActive ? 'text-[#651F27] font-bold' : 'text-[#191817] hover:text-[#651F27]'
+                    className={`flex items-center justify-between py-3 border-b group transition-colors ${
+                      isGlobalState
+                        ? 'border-[#B28A45]/20'
+                        : 'border-[#e5c158]/20'
+                    } ${
+                      isActive
+                        ? isGlobalState
+                          ? 'text-[#651F27] font-bold'
+                          : 'text-[#e5c158] font-bold'
+                        : isGlobalState
+                        ? 'text-[#191817] hover:text-[#651F27]'
+                        : 'text-[#f7f3e8]/90 hover:text-[#e5c158]'
                     }`}
                   >
                     <div className="flex items-center gap-4">
@@ -200,7 +218,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                           {item.nameLine1} {item.nameLine2}
                         </span>
                         <span
-                          className="font-serif text-xs text-[#651F27]/80 -mt-0.5"
+                          className={`font-serif text-xs -mt-0.5 ${
+                            isGlobalState ? 'text-[#651F27]/80' : 'text-[#e5c158]/80'
+                          }`}
                           style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                         >
                           {item.hindi}
@@ -212,24 +232,34 @@ export const Navbar: React.FC<NavbarProps> = ({
                 );
               })}
 
-              {/* Mobile REGISTER NOW Link — Clean gap, NO external-link icon */}
+              {/* Mobile REGISTER NOW Link */}
               <a
                 href={registerItem.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 flex items-center justify-between py-3.5 px-5 rounded-xl border-2 border-[#B28A45] bg-[#651F27] text-[#F3E8D0] shadow-lg"
+                className={`mt-4 flex items-center justify-between py-3.5 px-5 rounded-xl border-2 shadow-lg ${
+                  isGlobalState
+                    ? 'border-[#B28A45] bg-[#651F27] text-[#F3E8D0]'
+                    : 'border-[#e5c158] bg-[#2d0a15] text-[#f7f3e8]'
+                }`}
               >
                 <div className="flex items-center gap-3">
                   <span className="font-sans text-xs font-bold text-[#C96B2C] tracking-widest">
                     09
                   </span>
                   <div className="flex flex-col items-start justify-center gap-[3px]">
-                    <span className="font-cinzel text-base font-bold tracking-[0.15em] uppercase text-[#F3E8D0]">
+                    <span
+                      className={`font-cinzel text-base font-bold tracking-[0.15em] uppercase ${
+                        isGlobalState ? 'text-[#F3E8D0]' : 'text-[#f7f3e8]'
+                      }`}
+                    >
                       REGISTER NOW
                     </span>
                     <span
-                      className="font-serif text-xs text-[#ECE0C4]/90 font-medium leading-none"
+                      className={`font-serif text-xs font-medium leading-none ${
+                        isGlobalState ? 'text-[#ECE0C4]/90' : 'text-[#e5c158]/90'
+                      }`}
                       style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                     >
                       {registerItem.hindi}
@@ -240,7 +270,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               </a>
             </div>
 
-            <div className="mt-8 text-center pt-4 border-t border-[#B28A45]/20 font-sans text-xs text-[#191817]/60">
+            <div
+              className={`mt-8 text-center pt-4 border-t font-sans text-xs ${
+                isGlobalState ? 'border-[#B28A45]/20 text-[#191817]/60' : 'border-[#e5c158]/20 text-[#e8dfd1]/60'
+              }`}
+            >
               <p>Tulsi Mahotsav 2026 · Hindi Samiti MITS-DU</p>
             </div>
           </motion.div>
@@ -249,3 +283,4 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+

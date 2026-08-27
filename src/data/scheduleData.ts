@@ -43,7 +43,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's3',
         time: '11:30 AM — 01:30 PM',
-        titleHindi: 'निरूपण - रचनात्मक लेखन प्रतियोगिता (Creative Writing)',
+        titleHindi: '"निरूपण" - रचनात्मक लेखन प्रतियोगिता (Creative Writing)',
         titleEnglish: 'Live Prompt Essay & Short Story Writing',
         venue: 'Central Library Hall',
         category: 'competition',
@@ -67,7 +67,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's6',
         time: '02:30 PM — 05:00 PM',
-        titleHindi: 'अनुभूति - कला प्रदर्शनी (Art & Painting Showcase)',
+        titleHindi: '"अनुभूति" - कला प्रदर्शनी (Art & Painting Showcase)',
         titleEnglish: 'Live Canvas Painting & Art Gallery Display',
         venue: 'Art & Design Gallery',
         category: 'competition',
@@ -109,7 +109,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's10',
         time: '10:30 AM — 01:30 PM',
-        titleHindi: 'संजीवनी - ट्रेजर हंट प्रतियोगिता (Treasure Hunt)',
+        titleHindi: '"संजीवनी" - ट्रेजर हंट प्रतियोगिता (Treasure Hunt)',
         titleEnglish: 'Campus-wide Riddle Solving & Cryptic Hunt',
         venue: 'MITS Campus Grounds',
         category: 'competition',
@@ -117,7 +117,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's11',
         time: '01:30 PM — 04:30 PM',
-        titleHindi: 'थिरक - एकल नृत्य प्रतियोगिता (Solo Dance)',
+        titleHindi: '"थिरक" - एकल नृत्य प्रतियोगिता (Solo Dance)',
         titleEnglish: 'Classical, Folk & Indo-Contemporary Dance Showcase',
         venue: 'Main Cultural Stage',
         category: 'competition',
