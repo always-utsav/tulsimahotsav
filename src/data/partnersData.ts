@@ -8,6 +8,7 @@ export interface SponsorCategory {
     logo?: string;
     placeholderLabel: string;
     subtitleHindi: string;
+    status : string;
   }[];
 }
 
@@ -22,6 +23,7 @@ export const PARTNERS_DATA: SponsorCategory[] = [
         name: 'Title Partner',
         placeholderLabel: 'Official Title Partner',
         subtitleHindi: 'आधिकारिक मुख्य साझेदार',
+        status: 'To be Updated',
       },
     ],
   },
@@ -35,12 +37,14 @@ export const PARTNERS_DATA: SponsorCategory[] = [
         name: 'Associate Sponsor A',
         placeholderLabel: 'Powered By Partner A',
         subtitleHindi: 'आधिकारिक सह-प्रायोजक A',
+        status: 'To be Updated',
       },
       {
         id: 'p3',
         name: 'Associate Sponsor B',
         placeholderLabel: 'Powered By Partner B',
         subtitleHindi: 'आधिकारिक सह-प्रायोजक B',
+        status: 'To be Updated',
       },
     ],
   },
@@ -54,18 +58,21 @@ export const PARTNERS_DATA: SponsorCategory[] = [
         name: 'Cultural Partner',
         placeholderLabel: 'Cultural Institution Partner',
         subtitleHindi: 'सांस्कृतिक संस्थान भागीदार',
+        status: 'To be Updated',
       },
       {
         id: 'p5',
         name: 'Hospitality Partner',
         placeholderLabel: 'Hospitality & Venue Partner',
         subtitleHindi: 'आतिथ्य एवं स्थल भागीदार',
+        status: 'To be Updated',
       },
       {
         id: 'p6',
         name: 'Digital Partner',
         placeholderLabel: 'Digital Platform Partner',
         subtitleHindi: 'डिजिटल प्लेटफॉर्म भागीदार',
+        status: 'To be Updated',
       },
     ],
   },
@@ -79,12 +86,14 @@ export const PARTNERS_DATA: SponsorCategory[] = [
         name: 'Print Media Partner',
         placeholderLabel: 'Official Print Media Partner',
         subtitleHindi: 'आधिकारिक प्रिंट मीडिया भागीदार',
+        status: 'To be Updated',
       },
       {
         id: 'p8',
         name: 'Radio & Audio Partner',
         placeholderLabel: 'Official Radio Partner',
         subtitleHindi: 'आधिकारिक रेडियो भागीदार',
+        status: 'To be Updated',
       },
     ],
   },

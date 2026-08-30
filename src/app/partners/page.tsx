@@ -53,11 +53,15 @@ export default function PartnersPage() {
                     {sponsor.placeholderLabel}
                   </span>
                   <span
-                    className="font-serif text-xs text-[#191817]/75 mt-1 font-medium"
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                  >
-                    {sponsor.subtitleHindi}
-                  </span>
+  className="font-serif text-xs text-[#191817]/75 mt-1 font-medium"
+  style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+>
+  {sponsor.subtitleHindi}
+</span>
+
+<span className="mt-3 font-cinzel text-[10px] font-bold text-[#C96B2C] uppercase tracking-[0.18em]">
+  {sponsor.status}
+</span>
                 </motion.div>
               ))}
             </div>

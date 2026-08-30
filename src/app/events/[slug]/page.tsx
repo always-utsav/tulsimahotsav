@@ -164,17 +164,17 @@ export default function EventDetailPage() {
         <div className="space-y-4">
           <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
             <FileText className="h-5 w-5 text-[#C96B2C]" />
-            <h2 className="font-cinzel text-lg sm:text-xl font-bold text-[#F3E8D0] uppercase tracking-wider">
+            <h2 className="font-cinzel text-lg sm:text-xl font-bold text-[#651F27] uppercase tracking-wider">
               ABOUT THE EVENT · विवरण
             </h2>
           </div>
           <p
-            className="font-serif text-lg text-[#ECE0C4] leading-relaxed"
+            className="font-serif text-lg text-[#651F27] leading-relaxed font-medium"
             style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
           >
             {event.aboutHindi}
           </p>
-          <p className="font-sans text-sm text-[#F3E8D0]/85 leading-relaxed">
+          <p className="font-sans text-sm text-[#651F27]/90 leading-relaxed font-medium">
             {event.aboutEnglish}
           </p>
         </div>

@@ -42,7 +42,7 @@ export const GUEST_PROFILES: GuestProfile[] = [
     quoteHindi: 'जहाँ कविता साँस लेती है, वहाँ विचार अमर हो जाते हैं।',
     quoteEnglish: 'Where poetry breathes, ideas achieve immortality.',
     bioHindi: 'अखिल भारतीय कवि सम्मेलन में आमंत्रित कवियों का नाम शीघ्र घोषित किया जाएगा।',
-    bioEnglish: 'The lineup of national poets gracing the Kavi Sammelan stage will be unveiled soon.',
+    bioEnglish: 'The lineup of renowned poets gracing the Kavi Sammelan stage will be unveiled soon.',
     isConfirmed: false,
   },
   {

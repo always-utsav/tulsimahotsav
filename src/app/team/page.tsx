@@ -48,17 +48,14 @@ export default function TeamPage() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl border-2 border-[#B28A45] bg-[#F3E8D0]/90 shadow-xl"
               >
-                {/* Member photo frame */}
-                <div className="relative w-32 sm:w-36 h-40 sm:h-44 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
+                {/* Member photo container with simple custom gold/maroon border */}
+                <div className="relative w-32 sm:w-36 h-40 sm:h-44 rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover rounded-lg"
-                  />
-                  <img
-                    src="/assets_webp/team-member-frame.webp"
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-fill pointer-events-none z-10"
                   />
                 </div>
                 <div className="flex flex-col text-center sm:text-left">
@@ -105,19 +102,14 @@ export default function TeamPage() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all"
               >
-                {/* Member photo frame */}
-                <div className="relative w-20 sm:w-32 h-26 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
+                {/* Member photo container with simple custom gold/maroon border */}
+                <div className="relative w-20 sm:w-32 h-26 sm:h-40 rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover rounded-lg"
-                  />
-                  <img
-                    src="/assets_webp/team-member-frame.webp"
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-fill pointer-events-none z-10"
                   />
                 </div>
                 <div className="flex flex-col items-center">
@@ -164,18 +156,14 @@ export default function TeamPage() {
                 transition={{ duration: 0.4, delay: idx * 0.03 }}
                 className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
               >
-                <div className="relative w-20 sm:w-32 h-26 sm:h-40 rounded-xl border-2 border-[#191817] bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
+                {/* Member photo container with simple custom gold/maroon border */}
+                <div className="relative w-20 sm:w-32 h-26 sm:h-40 rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover rounded-lg"
-                  />
-                  <img
-                    src="/assets_webp/team-member-frame.webp"
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-fill pointer-events-none z-10"
                   />
                 </div>
                 <div className="flex flex-col items-center">

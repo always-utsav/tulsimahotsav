@@ -511,6 +511,70 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SECTION 06 — RULEBOOK SECTION */}
+        <section className="relative py-20 px-4 sm:px-8 lg:px-12 border-t border-[#B28A45]/30 bg-[#ECE0C4]/40 backdrop-blur-sm">
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <span className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.3em] text-[#C96B2C] uppercase block mb-1.5">
+              RULEBOOK · नियमावली
+            </span>
+            <h2
+              className="font-serif text-3xl sm:text-5xl font-bold text-[#651F27] leading-tight mb-3"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+            >
+              तुलसी महोत्सव की नियमावली
+            </h2>
+            <p className="font-sans text-xs sm:text-sm text-[#191817]/80 max-w-xl mb-10 leading-relaxed font-medium">
+              प्रतियोगिताओं के संपूर्ण नियम, पात्रता एवं दिशा-निर्देश देखने अथवा डाउनलोड करने हेतु आधिकारिक नियमावली चुनें।
+            </p>
+
+            {/* Two Rectangular Clickable Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+              {/* Card 1: Hindi Rulebook */}
+              <a
+                href={SITE_CONFIG.rulebooks.hindi}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-6 rounded-2xl border-2 border-[#B28A45]/60 bg-[#F3E8D0] shadow-md hover:border-[#651F27] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex flex-col text-left">
+                  <span
+                    className="font-serif text-xl sm:text-2xl font-bold text-[#651F27] group-hover:text-[#C96B2C] transition-colors"
+                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                  >
+                    हिंदी नियमावली
+                  </span>
+                  <span className="font-cinzel text-xs font-bold text-[#C96B2C] tracking-wider uppercase mt-1">
+                    Hindi Rulebook
+                  </span>
+                </div>
+                <div className="h-10 w-10 rounded-full border border-[#B28A45]/50 bg-[#651F27]/10 flex items-center justify-center text-[#651F27] group-hover:bg-[#651F27] group-hover:text-[#F3E8D0] transition-colors shrink-0">
+                  <span className="font-sans text-lg font-bold">→</span>
+                </div>
+              </a>
+
+              {/* Card 2: English Rulebook */}
+              <a
+                href={SITE_CONFIG.rulebooks.english}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-6 rounded-2xl border-2 border-[#B28A45]/60 bg-[#F3E8D0] shadow-md hover:border-[#651F27] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex flex-col text-left">
+                  <span className="font-serif text-xl sm:text-2xl font-bold text-[#651F27] group-hover:text-[#C96B2C] transition-colors">
+                    English Rulebook
+                  </span>
+                  <span className="font-cinzel text-xs font-bold text-[#C96B2C] tracking-wider uppercase mt-1">
+                    English Rulebook
+                  </span>
+                </div>
+                <div className="h-10 w-10 rounded-full border border-[#B28A45]/50 bg-[#651F27]/10 flex items-center justify-center text-[#651F27] group-hover:bg-[#651F27] group-hover:text-[#F3E8D0] transition-colors shrink-0">
+                  <span className="font-sans text-lg font-bold">→</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* RESTRUCTURED GRAND FOOTER */}
         <Footer />
       </div>

@@ -29,6 +29,10 @@ export const SITE_CONFIG = {
     instagram: 'https://instagram.com',
     youtube: 'https://youtube.com',
   },
+  rulebooks: {
+    hindi: 'https://drive.google.com/file/d/1hPN0V3CtLYM11nGwdR1RRAIydBGbihOl/view',
+    english: 'https://drive.google.com/file/d/1tNswJG6AQwCG6AqyGFPPFtPtNby-jsmI/view',
+  },
   assets: {
     dayTexture: '/assets_webp/day-texture.webp',
     texture: '/assets_webp/texture.webp',

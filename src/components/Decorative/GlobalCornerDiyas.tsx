@@ -1,10 +1,18 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 export const GlobalCornerDiyas: React.FC = () => {
+  const pathname = usePathname();
+  const isTeamPage = pathname === '/team' || pathname?.startsWith('/team');
+
   return (
-    <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden select-none">
+    <div
+      className={`fixed inset-0 pointer-events-none z-30 overflow-hidden select-none ${
+        isTeamPage ? 'hidden lg:block' : ''
+      }`}
+    >
       {/* Bottom Left Diya */}
       <img
         src="/assets_webp/diya-left-corner.webp"

@@ -88,6 +88,65 @@ export default function ContactPage() {
             </motion.div>
           </div>
 
+          {/* Middle Row: Official Helpdesk Card */}
+          <div className="flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="w-full max-w-2xl p-8 rounded-2xl border-2 border-[#B28A45] bg-[#F3E8D0] text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all"
+            >
+              <div className="w-full">
+                <span className="font-cinzel text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest block mb-1">
+                  OFFICIAL HELPDESK · सहायता केंद्र
+                </span>
+                <h3
+                  className="font-serif text-2xl font-bold text-[#651F27]"
+                  style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                >
+                  हेल्पडेस्क संपर्क
+                </h3>
+                <p className="font-sans text-xs text-[#191817]/70 mt-1 font-semibold">
+                  Inquiry Hours: 10:00 AM – 09:00 PM
+                </p>
+
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left border-t border-[#B28A45]/30 pt-4">
+                  <div className="p-4 rounded-xl border border-[#B28A45]/30 bg-[#ECE0C4]/60">
+                    <p
+                      className="font-serif text-base font-bold text-[#651F27]"
+                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                    >
+                      पूर्णिमा पूरे (Purnima Pure)
+                    </p>
+                    <a
+                      href="tel:+919343734271"
+                      className="mt-2 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
+                    >
+                      <Phone className="h-3.5 w-3.5 shrink-0 text-[#C96B2C]" />
+                      <span>+91 93437 34271</span>
+                    </a>
+                  </div>
+
+                  <div className="p-4 rounded-xl border border-[#B28A45]/30 bg-[#ECE0C4]/60">
+                    <p
+                      className="font-serif text-base font-bold text-[#651F27]"
+                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                    >
+                      उमेश मिश्रा (Umesh Mishra)
+                    </p>
+                    <a
+                      href="tel:+916264232438"
+                      className="mt-2 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
+                    >
+                      <Phone className="h-3.5 w-3.5 shrink-0 text-[#C96B2C]" />
+                      <span>+91 62642 32438</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
           {/* Bottom Row: Official Festival Email Card (Centered) */}
           <div className="flex justify-center">
             <motion.div

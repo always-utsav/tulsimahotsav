@@ -109,8 +109,8 @@ export default function SchedulePage() {
 
         {/* Note Box */}
         <div className="mt-16 text-center p-6 rounded-2xl border border-[#B28A45]/30 bg-[#ECE0C4]/80 max-w-2xl mx-auto shadow-sm">
-          <p className="font-sans text-xs text-[#191817]/80 font-medium">
-            * Note: Schedule timings and venues are subject to minor adjustments by the organizing team. Please report 15 minutes prior to competition start time.
+          <p className="font-sans text-xs text-[#191817]/85 font-medium leading-relaxed">
+            * Note: Competition venues and schedule timings may be changed according to requirements. Updated venue information and slot allocations will be communicated through the respective official WhatsApp Group. Please report 15 minutes prior to competition start time.
           </p>
           <a
             href={SITE_CONFIG.registrationUrl}
