@@ -8,6 +8,7 @@ export interface TeamMember {
   image?: string;
   frame?: string;
   email?: string;
+  objectPosition?: string;
 }
 
 export const TEAM_MEMBERS: TeamMember[] = [
@@ -36,7 +37,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleHindi: 'अध्यक्ष',
     roleEnglish: 'President',
     category: 'leadership',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/NiteshGurjar.webp',
   },
   {
     id: 'l2',
@@ -60,7 +61,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleHindi: 'सह-सचिव',
     roleEnglish: 'Joint Secretary',
     category: 'leadership',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Devansh Rai.webp',
   },
   {
     id: 'l5',
@@ -68,7 +69,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleHindi: 'सह-सचिव',
     roleEnglish: 'Joint Secretary',
     category: 'leadership',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Ananya Tiwari.webp',
   },
 
   // 3. DOMAIN HEADS
@@ -110,7 +111,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Sponsor Lead',
     category: 'core_lead',
     subCategory: 'Sponsorship',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Dhruv_Verma.webp',
   },
   {
     id: 'dh5',
@@ -119,7 +120,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Sponsor Lead',
     category: 'core_lead',
     subCategory: 'Sponsorship',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Dhruv Sharma.webp',
   },
 
   // MANAGEMENT
@@ -139,7 +140,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Management Lead',
     category: 'core_lead',
     subCategory: 'Management',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Aditya Singh Tomar.webp',
   },
   {
     id: 'dh8',
@@ -148,7 +149,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Management Lead',
     category: 'core_lead',
     subCategory: 'Management',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Ajeet Gurjar.webp',
   },
   {
     id: 'dh9',
@@ -244,7 +245,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Technical',
     category: 'core_lead',
     subCategory: 'Technical',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/PRASANNA_SAXENA.webp',
   },
   {
     id: 'dh19',
@@ -257,12 +258,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'dh20',
-    name: 'Amrit Tehlani',
+    name: 'Amrit Tehalani',
     roleHindi: 'सोशल मीडिया प्रमुख',
     roleEnglish: 'Social Media',
     category: 'core_lead',
     subCategory: 'Social Media',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/AmritTehalani.webp',
   },
 
   // PROMOTIONS & PR
@@ -320,7 +321,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Graphic Designing Lead',
     category: 'core_lead',
     subCategory: 'Graphic Designing',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/Vaishnavi Sharma.webp',
   },
 
   // VIDEOGRAPHY & EDITING

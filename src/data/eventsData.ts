@@ -446,7 +446,7 @@ export const FEATURED_NIGHTS: FestivalEvent[] = [
     titleHindi: 'ग्रैंड म्यूजिकल नाइट',
     titleEnglish: 'Grand Musical Night',
     category: 'featured_night',
-    illustration: '/assets_webp/opening-ceremony.webp', // Temporarily reuses Shankhnaad artwork as instructed
+    illustration: '/assets_webp/musical-night.webp',
     taglineHindi: 'उत्सव की भव्य संगीतमय समापन संध्या।',
     taglineEnglish: 'The spectacular musical finale of Tulsi Mahotsav 2026.',
     aboutHindi: 'तुलसी महोत्सव 2026 का भव्य संगीतमय समापन कार्यक्रम, जहाँ समापन समारोह के पश्चात संगीत एवं सांस्कृतिक तरंगों के साथ महोत्सव का यादगार समापन होगा।',
