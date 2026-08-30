@@ -237,7 +237,7 @@ export default function Home() {
 
           <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center gap-6">
             <span className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.35em] text-[#e5c158] uppercase">
-              THE FESTIVAL DATES
+              THE MAHOTSAV DATES
             </span>
 
             {/* Dramatic Numeral Treatment */}

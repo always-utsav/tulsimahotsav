@@ -85,5 +85,5 @@ export const HERO_CONFIG: HeroConfig = {
     { name: 'Gallery', href: '#gallery' },
     { name: 'Contact', href: '#contact' },
   ],
-  ctaButtonText: 'Explore Festival',
+  ctaButtonText: 'Explore Mahotsav',
 };

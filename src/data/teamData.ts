@@ -350,7 +350,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Videography & Editing Lead',
     category: 'core_lead',
     subCategory: 'Videography & Editing',
-    image: '/assets_webp/KrasH Dandotiya.webp',
+    image: '/assets_webp/Krash Dandotiya.webp',
   },
 
   // DECORATION & CREATIVE

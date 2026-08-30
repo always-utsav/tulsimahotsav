@@ -124,7 +124,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   frame: '/assets_webp/frame1.webp',
   aspect: 'landscape',
   captionHindi: 'संगीत और ऊर्जा से सजा शिवा बैंड का शानदार मंच',
-  captionEnglish: 'Energetic live music filling the festival with rhythm and youthful spirit.',
+  captionEnglish: 'Energetic live music filling the mahotsav with rhythm and youthful spirit.',
 },
 {
   id: 'g8',

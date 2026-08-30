@@ -17,10 +17,10 @@ export default function ContactPage() {
         subtitleEnglish="Get in touch with the student organizing committee, Hindi Samiti, and event leads"
       />
 
-      <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-5xl mx-auto space-y-12">
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {/* Top Row: Two Contact-Person Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto space-y-12">
+        <div className="space-y-8 max-w-5xl mx-auto">
+          {/* Top Row: Three Contact-Person Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {/* Box 1: Devansh Rai */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -86,64 +86,38 @@ export default function ContactPage() {
                 <span>Mob No. : +91 93294 34855</span>
               </a>
             </motion.div>
-          </div>
 
-          {/* Middle Row: Official Helpdesk Card */}
-          <div className="flex justify-center">
+            {/* Box 3: Nitesh Gurjar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="w-full max-w-2xl p-8 rounded-2xl border-2 border-[#B28A45] bg-[#F3E8D0] text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all"
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="p-8 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
             >
-              <div className="w-full">
-                <span className="font-cinzel text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest block mb-1">
-                  OFFICIAL HELPDESK · सहायता केंद्र
+              <div>
+                <span className="font-cinzel text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest block mb-2">
+                  FOR ANY QUERIES
                 </span>
                 <h3
                   className="font-serif text-2xl font-bold text-[#651F27]"
                   style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                 >
-                  हेल्पडेस्क संपर्क
+                  नितेश गुर्जर
                 </h3>
-                <p className="font-sans text-xs text-[#191817]/70 mt-1 font-semibold">
-                  Inquiry Hours: 10:00 AM – 09:00 PM
+                <p className="font-sans text-sm font-semibold text-[#651F27] mt-0.5">
+                  (Nitesh Gurjar)
                 </p>
-
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left border-t border-[#B28A45]/30 pt-4">
-                  <div className="p-4 rounded-xl border border-[#B28A45]/30 bg-[#ECE0C4]/60">
-                    <p
-                      className="font-serif text-base font-bold text-[#651F27]"
-                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                    >
-                      पूर्णिमा पूरे (Purnima Pure)
-                    </p>
-                    <a
-                      href="tel:+919343734271"
-                      className="mt-2 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
-                    >
-                      <Phone className="h-3.5 w-3.5 shrink-0 text-[#C96B2C]" />
-                      <span>+91 93437 34271</span>
-                    </a>
-                  </div>
-
-                  <div className="p-4 rounded-xl border border-[#B28A45]/30 bg-[#ECE0C4]/60">
-                    <p
-                      className="font-serif text-base font-bold text-[#651F27]"
-                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                    >
-                      उमेश मिश्रा (Umesh Mishra)
-                    </p>
-                    <a
-                      href="tel:+916264232438"
-                      className="mt-2 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
-                    >
-                      <Phone className="h-3.5 w-3.5 shrink-0 text-[#C96B2C]" />
-                      <span>+91 62642 32438</span>
-                    </a>
-                  </div>
-                </div>
+                <p className="font-sans text-xs text-[#191817]/70 mt-1 font-semibold">
+                  Single Point of Contact
+                </p>
               </div>
+              <a
+                href="tel:+919399191446"
+                className="mt-6 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
+              >
+                <Phone className="h-4 w-4 shrink-0" />
+                <span>Mob No. : +91 93991 91446</span>
+              </a>
             </motion.div>
           </div>
 
@@ -152,7 +126,7 @@ export default function ContactPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="w-full max-w-md p-8 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
             >
               <div>

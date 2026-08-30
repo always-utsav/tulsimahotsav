@@ -93,7 +93,7 @@ export default function GuestsPage() {
             आधिकारिक मुख्य अतिथि एवं कवि सूची की घोषणा
           </h4>
           <p className="font-sans text-xs sm:text-sm text-[#191817]/85 mt-2 font-medium">
-            The full lineup of distinguished Chief Guests, renowned poets from across India, and devotional artists will be announced officially closer to the festival dates.
+            The full lineup of distinguished Chief Guests, renowned poets from across India, and devotional artists will be announced officially closer to the mahotsav dates.
           </p>
         </div>
       </section>

@@ -85,7 +85,7 @@ export default function TeamPage() {
         <div>
           <div className="text-center mb-10">
             <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
-              FESTIVAL LEADERSHIP · नेतृत्व
+              MAHOTSAV LEADERSHIP · नेतृत्व
             </span>
             <h2
               className="font-serif text-3xl font-bold text-[#651F27]"
