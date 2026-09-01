@@ -1,6 +1,6 @@
 export interface SponsorCategory {
   titleHindi: string;
-  titleEnglish: string;
+  
   tier: 'title' | 'powered_by' | 'associate' | 'media';
   sponsors: {
     id: string;
@@ -15,7 +15,7 @@ export interface SponsorCategory {
 export const PARTNERS_DATA: SponsorCategory[] = [
   {
     titleHindi: 'मुख्य साझेदार',
-    titleEnglish: 'TITLE PARTNER',
+  
     tier: 'title',
     sponsors: [
       {
@@ -29,7 +29,7 @@ export const PARTNERS_DATA: SponsorCategory[] = [
   },
   {
     titleHindi: 'सहयोगी',
-    titleEnglish: 'POWERED BY',
+    
     tier: 'powered_by',
     sponsors: [
       {
@@ -50,7 +50,7 @@ export const PARTNERS_DATA: SponsorCategory[] = [
   },
   {
     titleHindi: 'सहयोगी साझेदार',
-    titleEnglish: 'ASSOCIATE PARTNERS',
+   
     tier: 'associate',
     sponsors: [
       {
@@ -78,7 +78,7 @@ export const PARTNERS_DATA: SponsorCategory[] = [
   },
   {
     titleHindi: 'मीडिया एवं प्रचार भागीदार',
-    titleEnglish: 'MEDIA & PUBLICITY PARTNERS',
+    
     tier: 'media',
     sponsors: [
       {

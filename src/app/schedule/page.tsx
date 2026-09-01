@@ -15,7 +15,7 @@ export default function SchedulePage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="समय की लय"
+        titleHindi="समय सारणी"
         titleEnglish="MAHOTSAV SCHEDULE"
         subtitleHindi="जहाँ हर पल कला, काव्य और संस्कृति का संगीत रचता है।"
         subtitleEnglish="Detailed timeline for 26 & 27 September 2026 at MITS-DU Gwalior"

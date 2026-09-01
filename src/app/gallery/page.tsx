@@ -63,32 +63,30 @@ export default function GalleryPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
               onClick={() => setSelectedIdx(idx)}
-              className="relative rounded-2xl overflow-hidden border border-[#B28A45]/30 bg-[#F3E8D0] shadow-lg group cursor-pointer h-[210px] sm:h-[230px] md:h-[240px] flex flex-col justify-end"
+              className="relative rounded-2xl overflow-hidden border border-[#B28A45]/30 bg-[#F3E8D0] shadow-lg group cursor-pointer h-[200px] sm:h-[220px] md:h-[230px] flex flex-col justify-end"
             >
               {/* Uniform Image Container */}
               <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <img
                   src={item.src}
-                  alt={item.titleEnglish}
+                  alt={item.titleHindi}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#191817] via-[#191817]/40 to-transparent opacity-85 group-hover:opacity-70 transition-opacity" />
+                {/* Subtle Dark Linear Bottom Gradient Overlay for High Text Readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#100305]/95 via-[#100305]/40 to-transparent pointer-events-none z-10" />
               </div>
 
-              {/* Card Footer Details */}
-              <div className="relative z-10 p-6 flex items-end justify-between">
+              {/* Card Footer Details (Text above gradient) */}
+              <div className="relative z-20 p-5 flex items-end justify-between">
                 <div>
                   <span
-                    className="font-serif text-lg font-bold text-[#F3E8D0] block"
+                    className="font-serif text-lg font-bold text-[#F3E8D0] block drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     {item.titleHindi}
                   </span>
-                  <span className="font-sans text-xs text-[#ECE0C4]/90 mt-0.5 block font-normal">
-                    {item.captionEnglish}
-                  </span>
                 </div>
-                <div className="p-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/80 text-[#F3E8D0] group-hover:bg-[#C96B2C] transition-colors shrink-0">
+                <div className="p-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/80 text-[#F3E8D0] group-hover:bg-[#C96B2C] transition-colors shrink-0 shadow-md">
                   <Maximize2 className="h-4 w-4" />
                 </div>
               </div>
@@ -155,8 +153,8 @@ export default function GalleryPage() {
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.2 }}
                     src={selectedImage.src}
-                    alt={selectedImage.titleEnglish}
-                    className="max-w-[90vw] max-h-[76vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-[#B28A45]/30"
+                    alt={selectedImage.titleHindi}
+                    className="max-w-[90vw] max-h-[78vh] w-auto h-auto object-contain rounded-xl shadow-2xl border border-[#B28A45]/30"
                   />
 
                   {/* Attached Caption */}
@@ -167,9 +165,6 @@ export default function GalleryPage() {
                     >
                       {selectedImage.titleHindi}
                     </h3>
-                    <p className="font-sans text-xs sm:text-sm text-[#ECE0C4]/90 mt-0.5">
-                      {selectedImage.captionEnglish}
-                    </p>
                   </div>
                 </div>
 

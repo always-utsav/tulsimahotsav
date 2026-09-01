@@ -11,9 +11,9 @@ export default function ContactPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="संवाद"
-        titleEnglish="LET'S TALK & REACH US"
-        subtitleHindi="विचारों का आदान-प्रदान और जिज्ञासाओं का समाधान।"
+        titleHindi="संपर्क करें"
+        titleEnglish="REACH OUT TO US"
+        subtitleHindi="आपके विचारों और प्रश्नों के लिए हमसे जुड़ें।"
         subtitleEnglish="Get in touch with the student organizing committee, Hindi Samiti, and event leads"
       />
 
@@ -69,21 +69,21 @@ export default function ContactPage() {
                   className="font-serif text-2xl font-bold text-[#651F27]"
                   style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                 >
-                  बलदेव कौरव
+                  उमेश मिश्रा
                 </h3>
                 <p className="font-sans text-sm font-semibold text-[#651F27] mt-0.5">
-                  (Baldev Kaurav)
+                  (Umesh Mishra)
                 </p>
                 <p className="font-sans text-xs text-[#191817]/70 mt-1 font-semibold">
                   Single Point of Contact
                 </p>
               </div>
               <a
-                href="tel:+919329434855"
+                href="tel:+916264232438"
                 className="mt-6 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
               >
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>Mob No. : +91 93294 34855</span>
+                <span>Mob No. : +91 62642 32438</span>
               </a>
             </motion.div>
 
@@ -102,21 +102,21 @@ export default function ContactPage() {
                   className="font-serif text-2xl font-bold text-[#651F27]"
                   style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                 >
-                  नितेश गुर्जर
+                  पूर्णिमा पुरे
                 </h3>
                 <p className="font-sans text-sm font-semibold text-[#651F27] mt-0.5">
-                  (Nitesh Gurjar)
+                  (Purnima Pure)
                 </p>
                 <p className="font-sans text-xs text-[#191817]/70 mt-1 font-semibold">
                   Single Point of Contact
                 </p>
               </div>
               <a
-                href="tel:+919399191446"
+                href="tel:+919343734271"
                 className="mt-6 inline-flex items-center gap-2 text-xs font-sans font-bold text-[#651F27] hover:text-[#C96B2C] uppercase"
               >
                 <Phone className="h-4 w-4 shrink-0" />
-                <span>Mob No. : +91 93991 91446</span>
+                <span>Mob No. : +91 93437 34271</span>
               </a>
             </motion.div>
           </div>

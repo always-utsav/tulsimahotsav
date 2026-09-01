@@ -12,7 +12,7 @@ export default function PartnersPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="साथ चलने वाले"
+        titleHindi="सहयोगी एवं प्रायोजक"
         titleEnglish="PARTNERS & SPONSORS"
         subtitleHindi="संस्कृति, साहित्य एवं कला के संरक्षण में हमारे सहभागी।"
         subtitleEnglish="Acknowledging the esteemed institutions, media partners, and patrons supporting Tulsi Mahotsav 2026"

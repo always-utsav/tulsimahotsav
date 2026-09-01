@@ -84,9 +84,7 @@ export default function TeamPage() {
         {/* SECTION 2: FESTIVAL LEADERSHIP (2 Cards/Row on Mobile, 5 Cards/Row on Desktop, Ananya Centered on Mobile) */}
         <div>
           <div className="text-center mb-10">
-            <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
-              FESTIVAL LEADERSHIP · नेतृत्व
-            </span>
+      
             <h2
               className="font-serif text-3xl font-bold text-[#651F27]"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
@@ -148,9 +146,7 @@ export default function TeamPage() {
         {/* SECTION 3: DOMAIN HEADS (2 Cards/Row on Mobile, 5 Cards/Row on Desktop) */}
         <div>
           <div className="text-center mb-10">
-            <span className="font-cinzel text-xs tracking-[0.3em] text-[#C96B2C] uppercase font-bold mb-1">
-              DOMAIN HEADS · कार्यक्षेत्र प्रमुख
-            </span>
+            
             <h2
               className="font-serif text-3xl font-bold text-[#651F27]"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}

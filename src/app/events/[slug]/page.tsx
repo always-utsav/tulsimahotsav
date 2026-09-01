@@ -40,6 +40,11 @@ export default function EventDetailPage() {
     );
   }
 
+  // Filter out any judging criteria items and select top 2-3 concise, important rules
+  const displayRules = event.rules
+    .filter((rule) => !rule.toLowerCase().includes('judging criteria'))
+    .slice(0, 3);
+
   return (
     <PageShell>
       {/* Event Poster Top Banner — Unified Master Deep Maroon & Mandala Style */}
@@ -73,19 +78,12 @@ export default function EventDetailPage() {
               >
                 {event.titleHindi}
               </h1>
-              <span className="font-cinzel text-xl sm:text-2xl font-bold text-[#e5c158] tracking-[0.2em] uppercase mt-2">
-                {event.titleEnglish}
-              </span>
 
-              <p
-                className="font-serif text-lg sm:text-xl text-[#F3E8D0] italic mt-4 font-medium"
-                style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-              >
-                “{event.taglineHindi}”
-              </p>
-              <p className="font-sans text-sm text-[#F3E8D0]/90 mt-1 font-medium">
-                {event.taglineEnglish}
-              </p>
+              {event.category === 'competition' && (
+                <span className="font-cinzel text-xl sm:text-2xl font-bold text-[#e5c158] tracking-[0.2em] uppercase mt-2">
+                  {event.titleEnglish}
+                </span>
+              )}
 
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -114,7 +112,7 @@ export default function EventDetailPage() {
               >
                 <img
                   src={event.illustration}
-                  alt={event.titleEnglish}
+                  alt={event.titleHindi}
                   className="w-full h-full object-cover rounded-[14px] overflow-hidden shadow-lg border border-[#e5c158]/30"
                 />
               </motion.div>
@@ -124,7 +122,7 @@ export default function EventDetailPage() {
       </section>
 
       {/* Detailed Rules & Event Blueprint */}
-      <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-5xl mx-auto space-y-12">
+      <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-5xl mx-auto space-y-10">
         {/* Meta Bar Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl border border-[#B28A45]/30 bg-[#191817]/90 shadow-xl">
           <div className="flex items-center gap-3">
@@ -160,22 +158,19 @@ export default function EventDetailPage() {
           </div>
         </div>
 
-        {/* Section: About */}
-        <div className="space-y-4">
+        {/* Section: About (Hindi Description Only) */}
+        <div className="space-y-3">
           <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
             <FileText className="h-5 w-5 text-[#C96B2C]" />
             <h2 className="font-cinzel text-lg sm:text-xl font-bold text-[#651F27] uppercase tracking-wider">
-              ABOUT THE EVENT · विवरण
+              ABOUT THE EVENT
             </h2>
           </div>
           <p
-            className="font-serif text-lg text-[#651F27] leading-relaxed font-medium"
+            className="font-serif text-base sm:text-lg text-[#651F27] leading-relaxed font-medium"
             style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
           >
             {event.aboutHindi}
-          </p>
-          <p className="font-sans text-sm text-[#651F27]/90 leading-relaxed font-medium">
-            {event.aboutEnglish}
           </p>
         </div>
 
@@ -209,18 +204,18 @@ export default function EventDetailPage() {
           </div>
         </div>
 
-        {/* Section: Rules & Regulations */}
-        {event.rules.length > 0 && (
+        {/* Section: Rules & Guidelines (2-3 Concise Points Only, No Judging Criteria) */}
+        {displayRules.length > 0 && (
           <div className="space-y-4 p-6 rounded-2xl border border-[#B28A45]/30 bg-[#191817]/90">
             <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
               <CheckCircle2 className="h-5 w-5 text-[#C96B2C]" />
               <h3 className="font-cinzel text-base font-bold text-[#F3E8D0] uppercase tracking-wider">
-                RULES & GUIDELINES · नियम एवं शर्तें
+                RULES & GUIDELINES
               </h3>
             </div>
-            <ul className="space-y-3">
-              {event.rules.map((rule, idx) => (
-                <li key={idx} className="font-sans text-xs sm:text-sm text-[#ECE0C4]/90 flex items-start gap-3">
+            <ul className="space-y-2.5">
+              {displayRules.map((rule, idx) => (
+                <li key={idx} className="font-sans text-xs sm:text-sm text-[#ECE0C4]/90 flex items-start gap-3 leading-relaxed">
                   <CheckCircle2 className="h-4 w-4 text-[#B28A45] shrink-0 mt-0.5" />
                   <span>{rule}</span>
                 </li>
@@ -232,12 +227,7 @@ export default function EventDetailPage() {
         {/* Bottom CTA */}
         {event.category === 'competition' && (
           <div className="text-center p-8 rounded-2xl border-2 border-[#B28A45] bg-gradient-to-r from-[#651F27] via-[#263A59] to-[#651F27] shadow-2xl">
-            <h3
-              className="font-serif text-2xl sm:text-3xl font-bold text-[#F3E8D0]"
-              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-            >
-              साहित्य और कला के इस महाकुंभ का हिस्सा बनें
-            </h3>
+          
             <p className="font-sans text-xs sm:text-sm text-[#ECE0C4]/90 mt-2 max-w-lg mx-auto">
               Secure your spot for {event.titleEnglish} at Tulsi Mahotsav 2026.
             </p>

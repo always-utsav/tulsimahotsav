@@ -23,7 +23,7 @@ export default function EventsMasterPage() {
         titleHindi="प्रतियोगिताएँ एवं सांस्कृतिक कार्यक्रम"
         titleEnglish="COMPETITIONS & CULTURAL EVENTS"
         subtitleHindi="जहाँ हर मंच पर प्रतिभा, विचार और संगीत का महासंगम होता है।"
-        subtitleEnglish="Explore all 9 competitive events and 3 major evening chapters of Tulsi Mahotsav 2026"
+        subtitleEnglish="Explore all 9 competitive events and 6 major evening chapters of Tulsi Mahotsav 2026"
       />
 
       <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto">
@@ -73,11 +73,11 @@ export default function EventsMasterPage() {
               transition={{ duration: 0.5 }}
               className="flex flex-col rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 overflow-hidden shadow-lg hover:border-[#651F27] transition-all group"
             >
-              {/* Event Poster Header with Maroon Background & Rounded Corners */}
+              {/* Event Poster Header */}
               <div className="relative w-full h-56 rounded-t-xl overflow-hidden bg-[#651F27] p-3 border-b-2 border-[#B28A45]/40">
                 <img
                   src={event.illustration}
-                  alt={event.titleEnglish}
+                  alt={event.titleHindi}
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 opacity-95"
                 />
                 <div className="absolute top-4 left-4 px-3.5 py-1 rounded-full border border-[#B28A45] bg-[#F3E8D0] text-[#651F27] text-[10px] font-sans font-extrabold uppercase tracking-widest shadow-md">
@@ -94,10 +94,12 @@ export default function EventsMasterPage() {
                   >
                     {event.titleHindi}
                   </h3>
-                  <span className="font-cinzel text-xs font-bold text-[#C96B2C] uppercase tracking-wider block mt-1.5">
-                    {event.titleEnglish}
-                  </span>
-                  <p className="font-sans text-xs text-[#191817]/85 mt-3 line-clamp-3 leading-relaxed font-normal">
+                  {event.category === 'competition' && (
+                    <span className="font-cinzel text-xs font-bold text-[#C96B2C] uppercase tracking-wider block mt-1.5">
+                      {event.titleEnglish}
+                    </span>
+                  )}
+                  <p className="font-sans text-xs text-[#191817]/85 mt-2.5 line-clamp-3 leading-relaxed font-normal">
                     {event.aboutEnglish}
                   </p>
                 </div>

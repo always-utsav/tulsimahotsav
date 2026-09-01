@@ -24,22 +24,21 @@ export const Navbar: React.FC<NavbarProps> = ({
   // Global State B triggers when scrollProgress reaches 0.95 OR on internal routes
   const isGlobalState = isInternalPage || scrollProgress >= 0.95;
 
-  // Exact 9 Nav Items as mandated (No logo, 2-line stacked English over Hindi)
+  // Exact 8 Nav Items (English only, no Hindi subtitle)
   const navItems = [
-    { nameLine1: 'HOME', nameLine2: '', hindi: 'मुख्य पृष्ठ', href: '/' },
-    { nameLine1: 'SCHEDULE', nameLine2: '', hindi: 'समय सारणी', href: '/schedule' },
-    { nameLine1: 'EVENT', nameLine2: 'DETAILS', hindi: 'कार्यक्रम विवरण', href: '/events' },
-    { nameLine1: 'GUEST', nameLine2: '', hindi: 'अतिथि', href: '/guests' },
-    { nameLine1: 'TEAM', nameLine2: '', hindi: 'टीम', href: '/team' },
-    { nameLine1: 'GALLERY', nameLine2: '', hindi: 'चित्र दीर्घा', href: '/gallery' },
-    { nameLine1: 'PARTNERS &', nameLine2: 'SPONSORS', hindi: 'सहयोगी एवं प्रायोजक', href: '/partners' },
-    { nameLine1: 'CONTACT', nameLine2: 'US', hindi: 'संपर्क', href: '/contact' },
+    { nameLine1: 'HOME', nameLine2: '', href: '/' },
+    { nameLine1: 'SCHEDULE', nameLine2: '', href: '/schedule' },
+    { nameLine1: 'EVENTS', nameLine2: '', href: '/events' },
+    { nameLine1: 'GUEST', nameLine2: '', href: '/guests' },
+    { nameLine1: 'TEAM', nameLine2: '', href: '/team' },
+    { nameLine1: 'GALLERY', nameLine2: '', href: '/gallery' },
+    { nameLine1: 'PARTNERS', nameLine2: '', href: '/partners' },
+    { nameLine1: 'CONTACT', nameLine2: '', href: '/contact' },
   ];
 
   const registerItem = {
     nameLine1: 'REGISTER',
     nameLine2: 'NOW',
-    hindi: 'अभी पंजीकरण करे',
     href: SITE_CONFIG.registrationUrl,
   };
 
@@ -82,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative group py-1 px-2.5 rounded-lg flex flex-col items-center justify-center text-center transition-colors duration-300 ${
+                  className={`relative group py-1.5 px-2.5 rounded-lg flex flex-col items-center justify-center text-center transition-colors duration-300 ${
                     isActive
                       ? isGlobalState
                         ? 'text-[#651F27]'
@@ -92,24 +91,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                       : 'text-[#e8dfd1]/80 hover:text-[#f7f3e8]'
                   }`}
                 >
-                  {/* Top Line: Primary English Label */}
+                  {/* Primary English Label Only */}
                   <span className="font-cinzel text-[11px] xl:text-xs font-bold tracking-[0.12em] uppercase leading-tight flex flex-col items-center">
                     <span>{item.nameLine1}</span>
                     {item.nameLine2 && <span>{item.nameLine2}</span>}
-                  </span>
-
-                  {/* Bottom Line: Hindi Label */}
-                  <span
-                    className={`font-serif text-[10px] xl:text-[11px] tracking-normal leading-tight mt-0.5 transition-colors ${
-                      isActive
-                        ? 'text-[#C96B2C] font-semibold'
-                        : isGlobalState
-                        ? 'text-[#651F27]/75 group-hover:text-[#651F27]'
-                        : 'text-[#B28A45]/80 group-hover:text-[#ECE0C4]'
-                    }`}
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                  >
-                    {item.hindi}
                   </span>
 
                   {/* Underline Accent */}
@@ -124,10 +109,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               );
             })}
 
-            {/* Tulsi Naad Music Toggle Button — Desktop (Immediately Left of REGISTER NOW) */}
+            {/* Tulsi Naad Music Toggle Button — Desktop */}
             <button
               onClick={toggleMusic}
-              className={`ml-2 inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2.5 min-h-[42px] rounded-full border text-[11px] font-sans font-bold tracking-[0.12em] uppercase transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 ${
+              className={`ml-2 inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 min-h-[38px] rounded-full border text-[11px] font-sans font-bold tracking-[0.12em] uppercase transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 ${
                 isGlobalState
                   ? 'border-[#B28A45] bg-[#ECE0C4]/90 text-[#651F27] hover:bg-[#651F27] hover:text-[#F3E8D0] shadow-[0_4px_12px_rgba(101,31,39,0.15)]'
                   : 'border-[#e5c158]/50 bg-[#1a050b]/80 text-[#f7f3e8] hover:text-[#e5c158] shadow-[0_4px_12px_rgba(229,193,88,0.15)]'
@@ -145,33 +130,25 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             </button>
 
-            {/* REGISTER NOW Button */}
+            {/* REGISTER NOW Button (English Only) */}
             <a
               href={registerItem.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`ml-2 inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[42px] rounded-full border text-[11px] font-sans font-bold tracking-[0.14em] uppercase transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 ${
+              className={`ml-2 inline-flex items-center justify-center gap-2 px-5 py-2 min-h-[38px] rounded-full border text-[11px] font-sans font-bold tracking-[0.14em] uppercase transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 ${
                 isGlobalState
                   ? 'border-[#B28A45] bg-[#651F27] text-[#F3E8D0] hover:bg-[#263A59] shadow-[0_4px_15px_rgba(101,31,39,0.3)]'
                   : 'border-[#e5c158]/60 bg-gradient-to-r from-[#1a050b] via-[#2d0a15] to-[#1a050b] text-[#f7f3e8] hover:text-[#e5c158] shadow-[0_4px_15px_rgba(229,193,88,0.2)]'
               }`}
             >
               <Sparkles className="h-3.5 w-3.5 text-[#C96B2C] shrink-0" />
-              <div className="flex flex-col items-center justify-center text-center leading-tight gap-[3px]">
-                <span className="font-cinzel tracking-[0.15em] font-bold">
-                  {registerItem.nameLine1} {registerItem.nameLine2}
-                </span>
-                <span
-                  className="text-[9.5px] font-serif text-[#ECE0C4]/90 font-medium leading-none"
-                  style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                >
-                  {registerItem.hindi}
-                </span>
-              </div>
+              <span className="font-cinzel tracking-[0.15em] font-bold">
+                {registerItem.nameLine1} {registerItem.nameLine2}
+              </span>
             </a>
           </div>
 
-          {/* Mobile Action Group: Music Toggle + Hamburger Button (Immediately Left of Hamburger) */}
+          {/* Mobile Action Group: Music Toggle + Hamburger Button */}
           <div className="lg:hidden flex items-center gap-2 shrink-0">
             {/* Tulsi Naad Music Toggle Button — Mobile */}
             <button
@@ -210,7 +187,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </nav>
 
-      {/* Full-Screen Mobile Drawer — Environment-Sensitive (Hero vs Site Context) */}
+      {/* Full-Screen Mobile Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -258,26 +235,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <span className="font-sans text-xs font-bold text-[#C96B2C] tracking-widest">
                         0{idx + 1}
                       </span>
-                      <div className="flex flex-col">
-                        <span className="font-cinzel text-base font-bold tracking-[0.15em] uppercase">
-                          {item.nameLine1} {item.nameLine2}
-                        </span>
-                        <span
-                          className={`font-serif text-xs -mt-0.5 ${
-                            isGlobalState ? 'text-[#651F27]/80' : 'text-[#e5c158]/80'
-                          }`}
-                          style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                        >
-                          {item.hindi}
-                        </span>
-                      </div>
+                      <span className="font-cinzel text-base font-bold tracking-[0.15em] uppercase">
+                        {item.nameLine1} {item.nameLine2}
+                      </span>
                     </div>
                     <span className="text-lg opacity-40 group-hover:opacity-100 transition-opacity">→</span>
                   </Link>
                 );
               })}
 
-              {/* Mobile REGISTER NOW Link */}
+              {/* Mobile REGISTER NOW Link (English Only) */}
               <a
                 href={registerItem.href}
                 target="_blank"
@@ -293,23 +260,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span className="font-sans text-xs font-bold text-[#C96B2C] tracking-widest">
                     09
                   </span>
-                  <div className="flex flex-col items-start justify-center gap-[3px]">
-                    <span
-                      className={`font-cinzel text-base font-bold tracking-[0.15em] uppercase ${
-                        isGlobalState ? 'text-[#F3E8D0]' : 'text-[#f7f3e8]'
-                      }`}
-                    >
-                      REGISTER NOW
-                    </span>
-                    <span
-                      className={`font-serif text-xs font-medium leading-none ${
-                        isGlobalState ? 'text-[#ECE0C4]/90' : 'text-[#e5c158]/90'
-                      }`}
-                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                    >
-                      {registerItem.hindi}
-                    </span>
-                  </div>
+                  <span
+                    className={`font-cinzel text-base font-bold tracking-[0.15em] uppercase ${
+                      isGlobalState ? 'text-[#F3E8D0]' : 'text-[#f7f3e8]'
+                    }`}
+                  >
+                    REGISTER NOW
+                  </span>
                 </div>
                 <Sparkles className="h-4 w-4 text-[#C96B2C]" />
               </a>

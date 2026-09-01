@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   hindiName: 'तुलसी महोत्सव 2026',
   taglineHindi: 'जहाँ शब्द उत्सव बनते हैं।',
   taglineEnglish: 'Where words become a celebration.',
-  institutionHindi: 'हिंदी समिति, एम.आई.टी.एस. - डी.यू., ग्वालियर',
+  institutionHindi: 'हिन्दी समिति, एम.आई.टी.एस. - डी.यू., ग्वालियर',
   institutionEnglish: 'Hindi Samiti, MITS-DU, Gwalior',
   location: 'MITS Campus, Gwalior, Madhya Pradesh',
   dates: '26 — 27 September 2026',

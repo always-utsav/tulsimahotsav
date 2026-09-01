@@ -11,7 +11,7 @@ export default function GuestsPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="मंच के मेहमान"
+        titleHindi="माननीय अतिथि"
         titleEnglish="GUESTS & ARTISTS"
         subtitleHindi="जहाँ विद्वता, कविता और कला के मूर्धन्य हस्ताक्षर पधारते हैं।"
         subtitleEnglish="Distinguished Chief Guests, Renowned Poets, and Devotional Artists gracing Tulsi Mahotsav 2026"
@@ -71,12 +71,12 @@ export default function GuestsPage() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-[#B28A45]/30 flex flex-col gap-2 italic">
-                  <p
+                  {/* <p
                     className="font-serif text-sm text-[#651F27] font-semibold"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     “{guest.quoteHindi}”
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </motion.div>

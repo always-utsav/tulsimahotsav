@@ -26,7 +26,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's1',
         time: '10:00 AM – 12:00 PM',
-        titleHindi: '"शंखनाद" — उद्घाटन समारोह (Opening Ceremony)',
+        titleHindi: '"शंखनाद" : उद्घाटन समारोह',
         titleEnglish: 'Auspicious Lamp Lighting & Inaugural Keynote Addresses',
         venue: 'Colloquium',
         category: 'ceremony',
@@ -35,7 +35,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's2',
         time: '12:00 PM – 02:00 PM',
-        titleHindi: 'सांस्कृतिक प्रश्नोत्तरी (Cultural Quiz)',
+        titleHindi: 'सांस्कृतिक प्रश्नोत्तरी',
         titleEnglish: 'Screening Round & Live Stage Buzzer Finale',
         venue: 'Colloquium',
         category: 'competition',
@@ -43,7 +43,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's3',
         time: '02:00 PM – 05:00 PM',
-        titleHindi: 'काव्य-पाठ प्रतियोगिता (Kavyapath — Poetry Recitation)',
+        titleHindi: 'काव्य-पाठ प्रतियोगिता',
         titleEnglish: 'Original Verses & Recitation Showcase',
         venue: 'Conclave Center',
         category: 'competition',
@@ -51,7 +51,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's4',
         time: '02:00 PM – 05:00 PM',
-        titleHindi: '"थिरक" — एकल नृत्य प्रतियोगिता (Thirak — Solo Dance)',
+        titleHindi: '"थिरक" : एकल नृत्य प्रतियोगिता',
         titleEnglish: 'Classical & Traditional Dance Showcase',
         venue: 'SAC',
         category: 'competition',
@@ -59,7 +59,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's5',
         time: '05:00 PM – 06:00 PM',
-        titleHindi: 'भजन संध्या (Bhajan Sandhya)',
+        titleHindi: 'भजन संध्या',
         titleEnglish: 'Devotional Ragas & Soulful Chants',
         venue: "Director's Lawn",
         category: 'cultural',
@@ -68,7 +68,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's6',
         time: '06:00 PM – 07:00 PM',
-        titleHindi: 'दीपोत्सव (Deepotsav — Festival of Lights)',
+        titleHindi: 'दीपोत्सव',
         titleEnglish: 'Mass Illumination of Earthen Lamps & Cultural Aarti',
         venue: 'MITS-DU, Gwalior',
         category: 'cultural',
@@ -77,8 +77,8 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's7',
         time: '06:00 PM – 08:00 PM',
-        titleHindi: 'अखिल भारतीय कवि सम्मेलन (Grand Kavi Sammelan)',
-        titleEnglish: 'Eminent Invited National Poets & Kavyapath Winners Showcase',
+        titleHindi: 'अखिल भारतीय कवि सम्मेलन',
+        titleEnglish: 'Eminent Invited Renowned Poets & Kavyapath Winners Showcase',
         venue: 'Stage Ground',
         category: 'cultural',
         isHighlight: true,
@@ -86,7 +86,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's8',
         time: '11:00 AM – 08:00 PM',
-        titleHindi: 'कला प्रदर्शनी (Art Exhibition)',
+        titleHindi: 'कला प्रदर्शनी',
         titleEnglish: 'Fine Arts & Cultural Handicrafts Exposition',
         venue: 'MITS-DU, Gwalior',
         category: 'competition',
@@ -94,7 +94,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's9',
         time: '11:00 AM – 08:00 PM',
-        titleHindi: 'व्यंजन मेला एवं पुस्तक प्रदर्शनी (Food Stalls & Book Fair)',
+        titleHindi: 'व्यंजन मेला एवं पुस्तक प्रदर्शनी',
         titleEnglish: 'Traditional Cuisines & Literary Exposition',
         venue: 'MITS-DU, Gwalior',
         category: 'cultural',
@@ -110,7 +110,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's10',
         time: '09:00 AM – 12:00 PM',
-        titleHindi: '"संजीवनी" — ट्रेजर हंट प्रतियोगिता (Sanjeevani — Treasure Hunt)',
+        titleHindi: '"संजीवनी" : ट्रेजर हंट प्रतियोगिता',
         titleEnglish: 'Campus-wide Riddle Solving & Cryptic Cultural Hunt',
         venue: 'Open Ground',
         category: 'competition',
@@ -118,7 +118,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's11',
         time: '10:00 AM – 12:00 PM',
-        titleHindi: '"निरूपण" — रचनात्मक लेखन प्रतियोगिता (Nirupan — Creative Writing)',
+        titleHindi: '"निरूपण" : रचनात्मक लेखन प्रतियोगिता',
         titleEnglish: 'Visual Prompt Analytical & Creative Interpretation Essay',
         venue: 'Seminar Hall',
         category: 'competition',
@@ -126,7 +126,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's12',
         time: '12:00 PM – 03:00 PM',
-        titleHindi: '"श्रुति संगम" — एकल गायन प्रतियोगिता (Shruti Sangam — Solo Singing)',
+        titleHindi: '"श्रुति संगम" : एकल गायन प्रतियोगिता',
         titleEnglish: 'Classical Vocal Recitals & Acoustic Accompaniment',
         venue: 'SAC',
         category: 'competition',
@@ -134,7 +134,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's13',
         time: '12:00 PM – 03:00 PM',
-        titleHindi: 'भाषण प्रतियोगिता (Speech Competition)',
+        titleHindi: 'भाषण प्रतियोगिता',
         titleEnglish: 'Persuasive Hindi Oratory on Cultural Identity & GenZ',
         venue: 'Conclave Center',
         category: 'competition',
@@ -142,7 +142,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's14',
         time: '04:00 PM – 06:00 PM',
-        titleHindi: 'समापन समारोह (Samapan Samaroh / Closing Ceremony)',
+        titleHindi: 'समापन समारोह',
         titleEnglish: 'Grand Valedictory Session, Felicitation & Prize Distribution',
         venue: 'MITS-DU, Gwalior',
         category: 'ceremony',
@@ -151,7 +151,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's15',
         time: '06:00 PM – 08:00 PM',
-        titleHindi: 'ग्रैंड म्यूजिकल नाइट (Grand Musical Night)',
+        titleHindi: 'ग्रैंड म्यूजिकल नाइट',
         titleEnglish: 'Spectacular Musical Finale & Cultural Closing Evening',
         venue: 'Stage Ground',
         category: 'cultural',
@@ -160,7 +160,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's16',
         time: '11:00 AM – 08:00 PM',
-        titleHindi: 'कला प्रदर्शनी (Art Exhibition)',
+        titleHindi: 'कला प्रदर्शनी',
         titleEnglish: 'Fine Arts & Cultural Handicrafts Exposition',
         venue: 'MITS-DU, Gwalior',
         category: 'competition',
@@ -168,7 +168,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's17',
         time: '11:00 AM – 08:00 PM',
-        titleHindi: 'व्यंजन मेला एवं पुस्तक प्रदर्शनी (Food Stalls & Book Fair)',
+        titleHindi: 'व्यंजन मेला एवं पुस्तक प्रदर्शनी',
         titleEnglish: 'Traditional Cuisines & Literary Exposition',
         venue: 'MITS-DU, Gwalior',
         category: 'cultural',
