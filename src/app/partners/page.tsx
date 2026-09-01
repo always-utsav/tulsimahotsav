@@ -21,9 +21,7 @@ export default function PartnersPage() {
       <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto space-y-16">
         {PARTNERS_DATA.map((group, idx) => (
           <div key={group.tier} className="text-center">
-            <span className="font-cinzel text-xs font-bold text-[#C96B2C] tracking-[0.25em] uppercase block mb-1">
-              {group.titleEnglish}
-            </span>
+            
             <h2
               className="font-serif text-2xl sm:text-3xl font-bold text-[#651F27] mb-8"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
