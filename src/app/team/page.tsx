@@ -72,12 +72,7 @@ export default function TeamPage() {
         {/* SECTION 1: FACULTY COORDINATOR (FIRST) */}
         <div>
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/10 px-4 py-1 mb-2">
-              <UserCheck className="h-3.5 w-3.5 text-[#C96B2C]" />
-              <span className="font-sans text-[11px] font-semibold tracking-[0.25em] text-[#651F27] uppercase">
-                FACULTY COORDINATOR
-              </span>
-            </div>
+            
             <h2
               className="font-serif text-3xl font-bold text-[#651F27]"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
@@ -128,12 +123,7 @@ export default function TeamPage() {
         {/* SECTION 2: DIGITAL & DEVELOPMENT ARCHITECTS (SECOND) */}
         <div>
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/10 px-4 py-1 mb-2">
-              <Code className="h-3.5 w-3.5 text-[#C96B2C]" />
-              <span className="font-sans text-[11px] font-semibold tracking-[0.25em] text-[#651F27] uppercase">
-                DIGITAL & DEVELOPMENT ARCHITECTS
-              </span>
-            </div>
+            
             <h2
               className="font-serif text-3xl font-bold text-[#651F27]"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
