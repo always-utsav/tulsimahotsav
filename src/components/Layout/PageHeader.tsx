@@ -6,7 +6,7 @@ import { MandalaMotion } from '@/components/Decorative/MandalaMotion';
 
 interface PageHeaderProps {
   titleHindi: string;
-  titleEnglish: string;
+  titleEnglish?: string;
   subtitleHindi?: string;
   subtitleEnglish?: string;
   eyebrow?: string;
@@ -14,9 +14,7 @@ interface PageHeaderProps {
 
 export const PageHeader: React.FC<PageHeaderProps> = ({
   titleHindi,
-  titleEnglish,
   subtitleHindi,
-  subtitleEnglish,
   eyebrow = 'TULSI MAHOTSAV 2026',
 }) => {
   return (
@@ -51,37 +49,20 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
           {titleHindi}
         </motion.h1>
 
-        {/* English Title Subtitle — Clean vertical gap */}
-        <motion.span
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-3.5 sm:mt-5 font-cinzel text-lg sm:text-2xl font-bold tracking-[0.2em] text-[#e5c158] uppercase drop-shadow block"
-        >
-          {titleEnglish}
-        </motion.span>
-
-        {/* Supporting Poetry Lines */}
-        {(subtitleHindi || subtitleEnglish) && (
+        {/* Supporting Hindi Poetry / Description Line (Directly Below Hindi Main Heading) */}
+        {subtitleHindi && (
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-6 sm:mt-8 max-w-2xl text-center space-y-2"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-4 sm:mt-5 max-w-2xl text-center"
           >
-            {subtitleHindi && (
-              <p
-                className="font-serif text-lg sm:text-xl italic text-[#F3E8D0] font-semibold leading-relaxed"
-                style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-              >
-                “{subtitleHindi}”
-              </p>
-            )}
-            {subtitleEnglish && (
-              <p className="font-sans text-xs sm:text-sm tracking-wide text-[#F3E8D0]/90 font-medium">
-                {subtitleEnglish}
-              </p>
-            )}
+            <p
+              className="font-serif text-lg sm:text-xl italic text-[#F3E8D0] font-semibold leading-relaxed"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+            >
+              “{subtitleHindi}”
+            </p>
           </motion.div>
         )}
       </div>

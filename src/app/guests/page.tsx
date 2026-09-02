@@ -3,11 +3,53 @@
 import React from 'react';
 import { PageShell } from '@/components/Layout/PageShell';
 import { PageHeader } from '@/components/Layout/PageHeader';
-import { GUEST_PROFILES } from '@/data/guestsData';
-import { Sparkles, Info } from 'lucide-react';
+import { POTENTIAL_GUESTS, PREVIOUS_GUESTS, Guest } from '@/data/guestsData';
 import { motion } from 'framer-motion';
 
 export default function GuestsPage() {
+  const potentialFirst10 = POTENTIAL_GUESTS.slice(0, 10);
+  const potentialLast4 = POTENTIAL_GUESTS.slice(10, 14);
+
+  const renderGuestCard = (guest: Guest, idx: number) => (
+    <motion.div
+      key={guest.id}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: (idx % 5) * 0.05 }}
+      className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-start shadow-lg hover:border-[#651F27] transition-all h-full"
+    >
+      {/* Circular Guest Photograph with Gold Ring */}
+      <div className="relative w-24 h-24 sm:w-28 sm:h-28 aspect-square rounded-full border-2 border-[#B28A45]/70 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-3 sm:mb-4">
+        <img
+          src={guest.image || '/assets_png/sample.png'}
+          alt={guest.name}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover rounded-full aspect-square"
+        />
+      </div>
+
+      {/* Guest Name & Designation */}
+      <div className="flex flex-col items-center flex-1 justify-start w-full">
+        <h3
+          className="font-serif text-sm sm:text-base font-bold text-[#651F27] leading-snug"
+          style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+        >
+          {guest.name}
+        </h3>
+        {guest.designation && (
+          <span
+            className="font-serif text-[11px] sm:text-xs text-[#191817]/85 font-medium mt-1 leading-snug"
+            style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+          >
+            {guest.designation}
+          </span>
+        )}
+      </div>
+    </motion.div>
+  );
+
   return (
     <PageShell>
       <PageHeader
@@ -17,84 +59,44 @@ export default function GuestsPage() {
         subtitleEnglish="Distinguished Chief Guests, Renowned Poets, and Devotional Artists gracing Tulsi Mahotsav 2026"
       />
 
-      <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {GUEST_PROFILES.map((guest, idx) => (
-            <motion.div
-              key={guest.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="flex flex-col rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 overflow-hidden shadow-xl p-6 text-center group hover:border-[#651F27] transition-all"
+      <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-7xl mx-auto space-y-16">
+        {/* SECTION 1: संभावित अतिथिगण (14 Guests - 5 + 5 + 4 Centered) */}
+        <div>
+          <div className="text-center mb-10">
+            <h2
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27]"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
-              {/* Cultural Photo Frame Treatment */}
-              <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-[#191817] border border-[#B28A45]/40 mb-6 p-3 shadow-inner">
-                <img
-                  src={guest.image}
-                  alt={guest.nameEnglish}
-                  className="w-full h-full object-cover rounded-lg filter drop-shadow opacity-90 group-hover:scale-105 transition-transform duration-700"
-                />
-                {!guest.isConfirmed && (
-                  <div className="absolute inset-0 bg-[#191817]/70 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-[#F3E8D0]">
-                    <Info className="h-8 w-8 text-[#C96B2C] mb-2" />
-                    <span className="font-cinzel text-xs font-bold uppercase tracking-widest">
-                      ANNOUNCEMENT SOON
-                    </span>
-                    <span
-                      className="font-serif text-xs text-[#ECE0C4]/80 mt-1"
-                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                    >
-                      शीघ्र घोषित किया जाएगा
-                    </span>
-                  </div>
-                )}
-              </div>
+              संभावित अतिथिगण
+            </h2>
+          </div>
 
-              {/* Guest Information */}
-              <div className="flex flex-col flex-1 justify-between">
-                <div>
-                  <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest block mb-1">
-                    {guest.category.replace('_', ' ').toUpperCase()}
-                  </span>
-                  <h3
-                    className="font-serif text-2xl font-bold text-[#651F27]"
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                  >
-                    {guest.nameHindi}
-                  </h3>
-                  <span className="font-cinzel text-xs font-bold text-[#263A59] uppercase tracking-wider block mt-1">
-                    {guest.nameEnglish}
-                  </span>
-                  <p className="font-sans text-xs text-[#651F27] mt-2 font-semibold">
-                    {guest.roleEnglish}
-                  </p>
-                </div>
+          {/* Top 10 Guests (Rows 1 & 2: 5 Cards/Row on Desktop) */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
+            {potentialFirst10.map((guest, idx) => renderGuestCard(guest, idx))}
+          </div>
 
-                <div className="mt-6 pt-4 border-t border-[#B28A45]/30 flex flex-col gap-2 italic">
-                  {/* <p
-                    className="font-serif text-sm text-[#651F27] font-semibold"
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                  >
-                    “{guest.quoteHindi}”
-                  </p> */}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Remaining 4 Guests (Row 3: 4 Cards Centered on Desktop) */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 max-w-6xl mx-auto mt-3 sm:mt-6">
+            {potentialLast4.map((guest, idx) => renderGuestCard(guest, idx + 10))}
+          </div>
         </div>
 
-        {/* Guest Announcement Notice Box */}
-        <div className="mt-16 text-center p-8 rounded-2xl border border-[#B28A45]/40 bg-[#ECE0C4]/80 max-w-3xl mx-auto shadow-sm">
-          <Sparkles className="h-6 w-6 text-[#C96B2C] mx-auto mb-2 animate-pulse" />
-          <h4
-            className="font-serif text-xl font-bold text-[#651F27]"
-            style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-          >
-            आधिकारिक मुख्य अतिथि एवं कवि सूची की घोषणा
-          </h4>
-          <p className="font-sans text-xs sm:text-sm text-[#191817]/85 mt-2 font-medium">
-            The full lineup of distinguished Chief Guests, renowned poets from across India, and devotional artists will be announced officially closer to the mahotsav dates.
-          </p>
+        {/* SECTION 2: पूर्व अतिथिगण (20 Guests - 5 + 5 + 5 + 5) */}
+        <div>
+          <div className="text-center mb-10">
+            <h2
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27]"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+            >
+              पूर्व अतिथिगण
+            </h2>
+          </div>
+
+          {/* 20 Previous Guests (4 Rows of 5 Cards on Desktop) */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
+            {PREVIOUS_GUESTS.map((guest, idx) => renderGuestCard(guest, idx))}
+          </div>
         </div>
       </section>
     </PageShell>

@@ -79,7 +79,7 @@ export const HeroOverlay: React.FC<HeroOverlayProps> = ({ currentFrame }) => {
                 initial={{ opacity: 0, x: isRightAlignedMobile ? 15 : -15 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className={`mb-2 sm:mb-3 inline-flex items-center gap-2 rounded-full border border-[#e5c158]/30 bg-[#1a050b]/70 px-3.5 sm:px-4 py-1 backdrop-blur-md ${
+                className={`mb-2 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-[#e5c158]/30 bg-[#1a050b]/70 px-3.5 sm:px-4 py-1 backdrop-blur-md ${
                   isRightAlignedMobile ? 'self-end md:self-start' : activePhase.id === 'expansion' ? 'self-start md:self-end' : 'self-start md:self-start'
                 }`}
               >

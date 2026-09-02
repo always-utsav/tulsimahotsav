@@ -334,13 +334,13 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.3em] text-[#e5c158] uppercase mb-2 block">
-                THE EVENING CHAPTERS
+                THE HIGHLIGHTS
               </span>
               <h2
                 className="font-serif text-3xl sm:text-5xl font-bold text-[#f7f3e8] tracking-wide leading-tight"
                 style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
               >
-                संध्या एवं सांस्कृतिक महोत्सव अध्याय
+                महोत्सव के प्रमुख आकर्षण
               </h2>
             </div>
 

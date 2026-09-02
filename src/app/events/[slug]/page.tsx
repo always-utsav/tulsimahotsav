@@ -79,12 +79,6 @@ export default function EventDetailPage() {
                 {event.titleHindi}
               </h1>
 
-              {event.category === 'competition' && (
-                <span className="font-cinzel text-xl sm:text-2xl font-bold text-[#e5c158] tracking-[0.2em] uppercase mt-2">
-                  {event.titleEnglish}
-                </span>
-              )}
-
               {/* Action Buttons */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 {event.category === 'competition' && (
@@ -163,7 +157,7 @@ export default function EventDetailPage() {
           <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
             <FileText className="h-5 w-5 text-[#C96B2C]" />
             <h2 className="font-cinzel text-lg sm:text-xl font-bold text-[#651F27] uppercase tracking-wider">
-              ABOUT THE EVENT
+              ABOUT THE EVENT · विवरण
             </h2>
           </div>
           <p
@@ -210,7 +204,7 @@ export default function EventDetailPage() {
             <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
               <CheckCircle2 className="h-5 w-5 text-[#C96B2C]" />
               <h3 className="font-cinzel text-base font-bold text-[#F3E8D0] uppercase tracking-wider">
-                RULES & GUIDELINES
+                RULES & GUIDELINES · नियम एवं शर्तें
               </h3>
             </div>
             <ul className="space-y-2.5">
@@ -227,7 +221,12 @@ export default function EventDetailPage() {
         {/* Bottom CTA */}
         {event.category === 'competition' && (
           <div className="text-center p-8 rounded-2xl border-2 border-[#B28A45] bg-gradient-to-r from-[#651F27] via-[#263A59] to-[#651F27] shadow-2xl">
-          
+            <h3
+              className="font-serif text-2xl sm:text-3xl font-bold text-[#F3E8D0]"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+            >
+              साहित्य और कला के इस महाकुंभ का हिस्सा बनें
+            </h3>
             <p className="font-sans text-xs sm:text-sm text-[#ECE0C4]/90 mt-2 max-w-lg mx-auto">
               Secure your spot for {event.titleEnglish} at Tulsi Mahotsav 2026.
             </p>

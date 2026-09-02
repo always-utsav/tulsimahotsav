@@ -94,12 +94,7 @@ export default function EventsMasterPage() {
                   >
                     {event.titleHindi}
                   </h3>
-                  {event.category === 'competition' && (
-                    <span className="font-cinzel text-xs font-bold text-[#C96B2C] uppercase tracking-wider block mt-1.5">
-                      {event.titleEnglish}
-                    </span>
-                  )}
-                  <p className="font-sans text-xs text-[#191817]/85 mt-2.5 line-clamp-3 leading-relaxed font-normal">
+                  <p className="font-sans text-xs text-[#191817]/85 mt-2 line-clamp-3 leading-relaxed font-normal">
                     {event.aboutEnglish}
                   </p>
                 </div>

@@ -3,14 +3,61 @@
 import React from 'react';
 import { PageShell } from '@/components/Layout/PageShell';
 import { PageHeader } from '@/components/Layout/PageHeader';
-import { TEAM_MEMBERS } from '@/data/teamData';
-import { Code, Sparkles } from 'lucide-react';
+import { TEAM_MEMBERS, TeamMember } from '@/data/teamData';
+import { Code, Sparkles, UserCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function TeamPage() {
   const webTeam = TEAM_MEMBERS.filter((m) => m.category === 'web_team');
   const leadership = TEAM_MEMBERS.filter((m) => m.category === 'leadership');
   const coreLeads = TEAM_MEMBERS.filter((m) => m.category === 'core_lead');
+
+  // Leadership split: Top 5 (Nitesh, Baldev, Ajay, Devansh, Ananya) and Bottom 2 (Yuvraj, Gaurang)
+  const leadershipTop5 = leadership.slice(0, 5);
+  const leadershipBottom2 = leadership.slice(5, 7);
+
+  const renderLeadershipCard = (member: TeamMember, idx: number, isAnanyaTiwari: boolean) => (
+    <motion.div
+      key={member.id}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: idx * 0.05 }}
+      className={`p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all w-full ${
+        isAnanyaTiwari
+          ? 'col-span-2 justify-self-center w-full max-w-[calc(50%-0.375rem)] md:col-span-1 md:max-w-none'
+          : ''
+      }`}
+    >
+      {/* Member photo container with locked portrait 3:4 aspect ratio */}
+      <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-3">
+        <img
+          src={member.image || '/assets_png/sample.png'}
+          alt={member.name}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover rounded-lg aspect-[3/4]"
+          style={{
+            objectPosition: member.objectPosition || 'center center',
+          }}
+        />
+      </div>
+      <div className="flex flex-col items-center w-full">
+        <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
+          LEADERSHIP
+        </span>
+        <h3 className="font-serif text-sm sm:text-base md:text-lg font-bold text-[#651F27] leading-tight">
+          {member.name}
+        </h3>
+        <span
+          className="font-serif text-xs sm:text-sm text-[#191817]/90 font-semibold mt-1 leading-snug block"
+          style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+        >
+          {member.roleHindi}
+        </span>
+      </div>
+    </motion.div>
+  );
 
   return (
     <PageShell>
@@ -22,7 +69,63 @@ export default function TeamPage() {
       />
 
       <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto space-y-16">
-        {/* SECTION 1: DIGITAL & DEVELOPMENT ARCHITECTS (FIRST) */}
+        {/* SECTION 1: FACULTY COORDINATOR (FIRST) */}
+        <div>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/10 px-4 py-1 mb-2">
+              <UserCheck className="h-3.5 w-3.5 text-[#C96B2C]" />
+              <span className="font-sans text-[11px] font-semibold tracking-[0.25em] text-[#651F27] uppercase">
+                FACULTY COORDINATOR
+              </span>
+            </div>
+            <h2
+              className="font-serif text-3xl font-bold text-[#651F27]"
+              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+            >
+              संकाय समन्वयक
+            </h2>
+          </div>
+
+          <div className="max-w-md mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col sm:flex-row items-center gap-6 p-5 sm:p-6 rounded-2xl border-2 border-[#B28A45] bg-[#F3E8D0]/90 shadow-xl"
+            >
+              {/* Member photo container with locked portrait 3:4 aspect ratio */}
+              <div className="relative w-32 sm:w-36 aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
+                <img
+                  src="/assets_png/sample.png"
+                  alt="Dr. Shubhi Kansal"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover rounded-lg aspect-[3/4]"
+                />
+              </div>
+              <div className="flex flex-col text-center sm:text-left">
+                <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1">
+                  <Sparkles className="h-3 w-3" /> FACULTY COORDINATOR
+                </span>
+                <h3 className="font-serif text-xl font-bold text-[#651F27] mt-0.5">Dr. Shubhi Kansal</h3>
+                <span
+                  className="font-serif text-sm sm:text-base font-semibold text-[#191817]/90 mt-1"
+                  style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                >
+                  संकाय समन्वयक
+                </span>
+                <span
+                  className="font-serif text-xs font-medium text-[#651F27] mt-0.5"
+                  style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                >
+                  हिंदी समिति, MITS-DU
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* SECTION 2: DIGITAL & DEVELOPMENT ARCHITECTS (SECOND) */}
         <div>
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/10 px-4 py-1 mb-2">
@@ -81,74 +184,42 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* SECTION 2: FESTIVAL LEADERSHIP (2 Cards/Row on Mobile, 5 Cards/Row on Desktop, Ananya Centered on Mobile) */}
+        {/* SECTION 3: FESTIVAL LEADERSHIP (THIRD - 7 Members in standard 5-col width cards) */}
         <div>
           <div className="text-center mb-10">
-      
             <h2
-              className="font-serif text-3xl font-bold text-[#651F27]"
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27]"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               संयोजक एवं समिति प्रमुख
             </h2>
           </div>
 
+          {/* Row 1: Top 5 Leadership Members (Nitesh, Baldev, Ajay, Devansh, Ananya) */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
-            {leadership.map((member, idx) => {
-              const isAnanyaTiwari = member.id === 'l5';
-              return (
-                <motion.div
-                  key={member.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  className={`p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all ${
-                    isAnanyaTiwari
-                      ? 'col-span-2 justify-self-center w-full max-w-[calc(50%-0.375rem)] md:col-span-1 md:max-w-none'
-                      : ''
-                  }`}
-                >
-                  {/* Member photo container with locked portrait 3:4 aspect ratio */}
-                  <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
-                    <img
-                      src={member.image || '/assets_png/sample.png'}
-                      alt={member.name}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover rounded-lg aspect-[3/4]"
-                      style={{
-                        objectPosition: member.objectPosition || 'center center',
-                      }}
-                    />
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
-                      LEADERSHIP
-                    </span>
-                    <h3 className="font-serif text-sm sm:text-lg font-bold text-[#651F27] leading-tight">{member.name}</h3>
-                    <span
-                      className="font-serif text-[11px] sm:text-xs text-[#191817]/85 font-medium mt-0.5 leading-tight"
-                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                    >
-                      {member.roleHindi}
-                    </span>
-                    <span className="font-sans text-[10px] sm:text-[11px] font-semibold text-[#651F27] mt-0.5 leading-tight">
-                      {member.roleEnglish}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {leadershipTop5.map((member, idx) =>
+              renderLeadershipCard(member, idx, member.id === 'l5')
+            )}
+          </div>
+
+          {/* Row 2: Bottom 2 Members Centered (Yuvraj & Gaurang) with EXACT SAME CARD DIMENSIONS as Top 5 on both mobile & desktop */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 max-w-7xl mx-auto mt-3 sm:mt-6">
+            {leadershipBottom2.map((member, idx) => (
+              <div
+                key={member.id}
+                className="w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1.2rem)] flex"
+              >
+                {renderLeadershipCard(member, idx + 5, false)}
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* SECTION 3: DOMAIN HEADS (2 Cards/Row on Mobile, 5 Cards/Row on Desktop) */}
+        {/* SECTION 4: DOMAIN HEADS (FOURTH - Reflowed Grid) */}
         <div>
           <div className="text-center mb-10">
-            
             <h2
-              className="font-serif text-3xl font-bold text-[#651F27]"
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27]"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               प्रतियोगिता एवं संचालन दल
@@ -163,10 +234,10 @@ export default function TeamPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.03 }}
-                className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all"
+                className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all w-full"
               >
                 {/* Member photo container with locked portrait 3:4 aspect ratio */}
-                <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-4">
+                <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-3">
                   <img
                     src={member.image || '/assets_png/sample.png'}
                     alt={member.name}
@@ -178,21 +249,20 @@ export default function TeamPage() {
                     }}
                   />
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center w-full">
                   {member.subCategory && (
                     <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
                       {member.subCategory}
                     </span>
                   )}
-                  <h3 className="font-serif text-xs sm:text-base font-bold text-[#651F27] leading-tight">{member.name}</h3>
+                  <h3 className="font-serif text-xs sm:text-base font-bold text-[#651F27] leading-tight">
+                    {member.name}
+                  </h3>
                   <span
-                    className="font-serif text-[10px] sm:text-xs text-[#191817]/85 font-medium mt-0.5 leading-tight"
+                    className="font-serif text-xs sm:text-sm text-[#191817]/90 font-semibold mt-1 leading-snug block"
                     style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                   >
                     {member.roleHindi}
-                  </span>
-                  <span className="font-sans text-[9.5px] sm:text-[11px] font-semibold text-[#651F27] mt-0.5 leading-tight">
-                    {member.roleEnglish}
                   </span>
                 </div>
               </motion.div>
