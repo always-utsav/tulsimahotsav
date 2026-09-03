@@ -133,7 +133,7 @@ export const PREVIOUS_GUESTS: Guest[] = [
     id: 'prev7',
     name: 'श्री अक्षय कुमार सिंह जी',
     designation: 'अतिरिक्त सचिव, सामान्य प्रशासन विभाग, मध्यप्रदेश शासन (तत्कालीन कलेक्टर, ग्वालियर)',
-    image: '/assets_webp/akshay_.webp',
+    image: '/assets_webp/Akshay_.webp',
   },
   {
     id: 'prev8',
