@@ -17,7 +17,7 @@ export default function SchedulePage() {
       <PageHeader
         titleHindi="समय सारणी"
         titleEnglish="MAHOTSAV SCHEDULE"
-        subtitleHindi="जहाँ हर पल कला, काव्य और संस्कृति का संगीत रचता है।"
+        subtitleHindi="क्षणों में पिरोई सांस्कृतिक यात्रा।"
         subtitleEnglish="Detailed timeline for 26 & 27 September 2026 at MITS-DU Gwalior"
       />
 
@@ -110,7 +110,7 @@ export default function SchedulePage() {
         {/* Note Box */}
         <div className="mt-16 text-center p-6 rounded-2xl border border-[#B28A45]/30 bg-[#ECE0C4]/80 max-w-2xl mx-auto shadow-sm">
           <p className="font-sans text-xs text-[#191817]/85 font-medium leading-relaxed">
-            * Note: Competition venues and schedule timings may be changed according to requirements. Updated venue information and slot allocations will be communicated through the respective official WhatsApp Group. Please report 15 minutes prior to competition start time.
+            * Note: Competition venues and timings may change as required. Updates will be shared via the official WhatsApp group. Please report 15 minutes before your event.
           </p>
           <a
             href={SITE_CONFIG.registrationUrl}

@@ -20,8 +20,8 @@ export const SCHEDULE_DATA: DaySchedule[] = [
   {
     dayNumber: '01',
     dateDisplay: '26 SEPTEMBER 2026',
-    dayHindi: 'प्रथम दिवस — शुभारंभ, प्रतियोगिताएँ एवं सांस्कृतिक संध्या',
-    dayEnglish: 'Day One — Inauguration, Competitions & Cultural Evenings',
+    dayHindi: 'प्रथम दिवस : शुभारंभ, प्रतियोगिताएँ एवं सांस्कृतिक संध्या',
+    dayEnglish: 'Day One : Inauguration, Competitions & Cultural Evenings',
     items: [
       {
         id: 's1',
@@ -104,8 +104,8 @@ export const SCHEDULE_DATA: DaySchedule[] = [
   {
     dayNumber: '02',
     dateDisplay: '27 SEPTEMBER 2026',
-    dayHindi: 'द्वितीय दिवस — साहित्य, कला, समापन एवं ग्रैंड म्यूजिकल नाइट',
-    dayEnglish: 'Day Two — Literature, Music, Valedictory & Grand Musical Night',
+    dayHindi: 'द्वितीय दिवस : साहित्य, कला, समापन एवं ग्रैंड म्यूजिकल नाइट',
+    dayEnglish: 'Day Two : Literature, Music, Valedictory & Grand Musical Night',
     items: [
       {
         id: 's10',

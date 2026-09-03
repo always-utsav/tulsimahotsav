@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               );
             })}
 
-            {/* Tulsi Naad Music Toggle Button — Desktop */}
+            {/* Music Music Toggle Button — Desktop */}
             <button
               onClick={toggleMusic}
               className={`ml-2 inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 min-h-[38px] rounded-full border text-[11px] font-sans font-bold tracking-[0.12em] uppercase transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 ${
@@ -117,8 +117,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'border-[#B28A45] bg-[#ECE0C4]/90 text-[#651F27] hover:bg-[#651F27] hover:text-[#F3E8D0] shadow-[0_4px_12px_rgba(101,31,39,0.15)]'
                   : 'border-[#e5c158]/50 bg-[#1a050b]/80 text-[#f7f3e8] hover:text-[#e5c158] shadow-[0_4px_12px_rgba(229,193,88,0.15)]'
               }`}
-              title={isPlaying ? 'Silence the Naad' : 'Feel the Tulsi Naad'}
-              aria-label={isPlaying ? 'Silence the Naad' : 'Feel the Tulsi Naad'}
+              title={isPlaying ? 'Silence the Music' : 'Feel the Music'}
+              aria-label={isPlaying ? 'Silence the Music' : 'Feel the Music'}
             >
               {isPlaying ? (
                 <Volume2 className="h-3.5 w-3.5 text-[#C96B2C] animate-pulse shrink-0" />
@@ -126,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <VolumeX className="h-3.5 w-3.5 text-[#B28A45] shrink-0" />
               )}
               <span className="font-cinzel tracking-[0.1em] font-bold whitespace-nowrap">
-                {isPlaying ? 'Silence the Naad' : 'Feel the Tulsi Naad'}
+                {isPlaying ? 'Silence the Music' : 'Feel the Music'}
               </span>
             </button>
 
@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Action Group: Music Toggle + Hamburger Button */}
           <div className="lg:hidden flex items-center gap-2 shrink-0">
-            {/* Tulsi Naad Music Toggle Button — Mobile */}
+            {/* Music Music Toggle Button — Mobile */}
             <button
               onClick={toggleMusic}
               className={`px-2.5 py-1.5 min-h-[36px] rounded-lg border text-[10px] font-sans font-bold tracking-wider uppercase transition-all flex items-center gap-1.5 shrink-0 ${
@@ -158,8 +158,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'border-[#B28A45]/50 bg-[#651F27] text-[#F3E8D0] shadow-sm'
                   : 'border-[#e5c158]/40 bg-[#1a050b]/85 text-[#f7f3e8] shadow-sm'
               }`}
-              title={isPlaying ? 'Silence the Naad' : 'Feel the Tulsi Naad'}
-              aria-label={isPlaying ? 'Silence the Naad' : 'Feel the Tulsi Naad'}
+              title={isPlaying ? 'Silence the Music' : 'Feel the Music'}
+              aria-label={isPlaying ? 'Silence the Music' : 'Feel the Music'}
             >
               {isPlaying ? (
                 <Volume2 className="h-3.5 w-3.5 text-[#C96B2C] animate-pulse shrink-0" />
@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <VolumeX className="h-3.5 w-3.5 opacity-85 shrink-0" />
               )}
               <span className="font-cinzel tracking-wider text-[10px] font-bold whitespace-nowrap">
-                {isPlaying ? 'Silence the Naad' : 'Feel the Tulsi Naad'}
+                {isPlaying ? 'Silence the Music' : 'Feel the Music'}
               </span>
             </button>
 

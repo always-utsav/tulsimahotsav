@@ -47,9 +47,9 @@ export default function GalleryPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="स्मृतियाँ"
+        titleHindi="स्मृतियों का कारवाँ"
         titleEnglish="MOMENTS FROM THE MAHOTSAV"
-        subtitleHindi="कुछ क्षण मंच पर होते हैं। कुछ हमेशा के लिए रह जाते हैं।"
+        subtitleHindi="बीते क्षणों की अनश्वर आभा।"
         subtitleEnglish="Visual photo essay capturing light, emotion, poetry, and stage performances at Tulsi Mahotsav"
       />
 

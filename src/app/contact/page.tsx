@@ -11,9 +11,9 @@ export default function ContactPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="संपर्क करें"
+        titleHindi="संपर्क सूत्र"
         titleEnglish="REACH OUT TO US"
-        subtitleHindi="आपके विचारों और प्रश्नों के लिए हमसे जुड़ें।"
+        subtitleHindi="मिलइ न काहू सों सुखदाई। बिनु हरि कृपा मिलहिं न भाई॥"
         subtitleEnglish="Get in touch with the student organizing committee, Hindi Samiti, and event leads"
       />
 

@@ -20,9 +20,9 @@ export default function EventsMasterPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="प्रतियोगिताएँ एवं सांस्कृतिक कार्यक्रम"
+        titleHindi="प्रतियोगिताएँ एवं सांस्कृतिक आयोजन"
         titleEnglish="COMPETITIONS & CULTURAL EVENTS"
-        subtitleHindi="जहाँ हर मंच पर प्रतिभा, विचार और संगीत का महासंगम होता है।"
+        subtitleHindi="9 राष्ट्र-स्तरीय प्रतियोगिताएँ • 6 अविस्मरणीय आयोजन"
         subtitleEnglish="Explore all 9 competitive events and 6 major evening chapters of Tulsi Mahotsav 2026"
       />
 

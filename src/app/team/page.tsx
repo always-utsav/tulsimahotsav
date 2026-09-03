@@ -12,9 +12,14 @@ export default function TeamPage() {
   const leadership = TEAM_MEMBERS.filter((m) => m.category === 'leadership');
   const coreLeads = TEAM_MEMBERS.filter((m) => m.category === 'core_lead');
 
-  // Leadership split: Top 5 (Nitesh, Baldev, Ajay, Devansh, Ananya) and Bottom 2 (Yuvraj, Gaurang)
+  // Leadership split: Top 5 for 5-col desktop row 1 (Nitesh, Baldev, Ajay, Yuvraj, Devansh)
+  // and Bottom 2 for centered row 2 (Gaurang, Ananya)
   const leadershipTop5 = leadership.slice(0, 5);
   const leadershipBottom2 = leadership.slice(5, 7);
+
+  // Domain Heads split for desktop centering: Top 25 (5 full rows of 5) and remaining (centered row)
+  const coreLeadsTop = coreLeads.slice(0, 25);
+  const coreLeadsBottom = coreLeads.slice(25);
 
   const renderLeadershipCard = (member: TeamMember, idx: number, isAnanyaTiwari: boolean) => (
     <motion.div
@@ -59,6 +64,47 @@ export default function TeamPage() {
     </motion.div>
   );
 
+  const renderDomainHeadCard = (member: TeamMember, idx: number) => (
+    <motion.div
+      key={member.id}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: (idx % 5) * 0.03 }}
+      className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all w-full"
+    >
+      {/* Member photo container with locked portrait 3:4 aspect ratio */}
+      <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-3">
+        <img
+          src={member.image || '/assets_png/sample.png'}
+          alt={member.name}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover rounded-lg aspect-[3/4]"
+          style={{
+            objectPosition: member.objectPosition || 'center center',
+          }}
+        />
+      </div>
+      <div className="flex flex-col items-center w-full">
+        {member.subCategory && (
+          <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
+            {member.subCategory}
+          </span>
+        )}
+        <h3 className="font-serif text-xs sm:text-base font-bold text-[#651F27] leading-tight">
+          {member.name}
+        </h3>
+        <span
+          className="font-serif text-xs sm:text-sm text-[#191817]/90 font-semibold mt-1 leading-snug block"
+          style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+        >
+          {member.roleHindi}
+        </span>
+      </div>
+    </motion.div>
+  );
+
   return (
     <PageShell>
       <PageHeader
@@ -74,7 +120,7 @@ export default function TeamPage() {
           <div className="text-center mb-8">
             
             <h2
-              className="font-serif text-3xl font-bold text-[#651F27]"
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               संकाय समन्वयक
@@ -125,7 +171,7 @@ export default function TeamPage() {
           <div className="text-center mb-10">
             
             <h2
-              className="font-serif text-3xl font-bold text-[#651F27]"
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               वेबसाइट एवं डिजिटल टीम
@@ -156,7 +202,7 @@ export default function TeamPage() {
                 </div>
                 <div className="flex flex-col text-center sm:text-left">
                   <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1">
-                    <Sparkles className="h-3 w-3" /> WEBSITE TEAM
+                    WEBSITE TEAM
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#651F27] mt-0.5">{member.name}</h3>
                   <span
@@ -178,86 +224,67 @@ export default function TeamPage() {
         <div>
           <div className="text-center mb-10">
             <h2
-              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27]"
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               संयोजक एवं समिति प्रमुख
             </h2>
           </div>
 
-          {/* Row 1: Top 5 Leadership Members (Nitesh, Baldev, Ajay, Devansh, Ananya) */}
+          {/* Row 1: Top 5 Leadership Members */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
             {leadershipTop5.map((member, idx) =>
-              renderLeadershipCard(member, idx, member.id === 'l5')
+              renderLeadershipCard(member, idx, false)
             )}
           </div>
 
-          {/* Row 2: Bottom 2 Members Centered (Yuvraj & Gaurang) with EXACT SAME CARD DIMENSIONS as Top 5 on both mobile & desktop */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 max-w-7xl mx-auto mt-3 sm:mt-6">
-            {leadershipBottom2.map((member, idx) => (
-              <div
-                key={member.id}
-                className="w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1.2rem)] flex"
-              >
-                {renderLeadershipCard(member, idx + 5, false)}
-              </div>
-            ))}
+          {/* Row 2: Bottom 2 Members (Gaurang & Ananya) Centered on Desktop and Mobile */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-3 sm:gap-6 max-w-7xl mx-auto mt-3 sm:mt-6">
+            {leadershipBottom2.map((member, idx) => {
+              const isAnanyaTiwari = member.id === 'l5';
+              return (
+                <div
+                  key={member.id}
+                  className={`w-full lg:w-[calc(20%-1.2rem)] flex ${
+                    isAnanyaTiwari ? 'col-span-2 justify-self-center max-w-[calc(50%-0.375rem)] lg:max-w-none' : ''
+                  }`}
+                >
+                  {renderLeadershipCard(member, idx + 5, false)}
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* SECTION 4: DOMAIN HEADS (FOURTH - Reflowed Grid) */}
+        {/* SECTION 4: DOMAIN HEADS (FOURTH - Reflowed Grid + Centered Leftover Row on Desktop) */}
         <div>
           <div className="text-center mb-10">
             <h2
-              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27]"
+              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               प्रतियोगिता एवं संचालन दल
             </h2>
           </div>
 
+          {/* Top 25 Domain Head Cards (5 full rows of 5 on desktop) */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
-            {coreLeads.map((member, idx) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.03 }}
-                className="p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/30 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-md hover:border-[#651F27] transition-all w-full"
-              >
-                {/* Member photo container with locked portrait 3:4 aspect ratio */}
-                <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-3">
-                  <img
-                    src={member.image || '/assets_png/sample.png'}
-                    alt={member.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover rounded-lg aspect-[3/4]"
-                    style={{
-                      objectPosition: member.objectPosition || 'center center',
-                    }}
-                  />
-                </div>
-                <div className="flex flex-col items-center w-full">
-                  {member.subCategory && (
-                    <span className="font-sans text-[9px] sm:text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest mb-0.5">
-                      {member.subCategory}
-                    </span>
-                  )}
-                  <h3 className="font-serif text-xs sm:text-base font-bold text-[#651F27] leading-tight">
-                    {member.name}
-                  </h3>
-                  <span
-                    className="font-serif text-xs sm:text-sm text-[#191817]/90 font-semibold mt-1 leading-snug block"
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                  >
-                    {member.roleHindi}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+            {coreLeadsTop.map((member, idx) => renderDomainHeadCard(member, idx))}
           </div>
+
+          {/* Leftover Domain Head Cards (including Tanushka Sengar) Centered Horizontally on Desktop */}
+          {coreLeadsBottom.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 max-w-7xl mx-auto mt-3 sm:mt-6">
+              {coreLeadsBottom.map((member, idx) => (
+                <div
+                  key={member.id}
+                  className="w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1.2rem)] flex"
+                >
+                  {renderDomainHeadCard(member, idx + 25)}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </PageShell>

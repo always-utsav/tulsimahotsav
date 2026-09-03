@@ -53,9 +53,9 @@ export default function GuestsPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="माननीय अतिथि"
+        titleHindi="माननीय अतिथिगण"
         titleEnglish="GUESTS & ARTISTS"
-        subtitleHindi="जहाँ विद्वता, कविता और कला के मूर्धन्य हस्ताक्षर पधारते हैं।"
+        subtitleHindi="विशिष्ट अतिथि • प्रख्यात कवि • सुप्रसिद्ध भजन कलाकार"
         subtitleEnglish="Distinguished Chief Guests, Renowned Poets, and Devotional Artists gracing Tulsi Mahotsav 2026"
       />
 
