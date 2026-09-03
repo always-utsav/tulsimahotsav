@@ -65,7 +65,7 @@ export default function EventDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Number, Titles & Quick Meta */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#e5c158]/40 bg-[#651F27]/40 px-4 py-1.5 backdrop-blur-md mb-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#e5c158]/40 bg-[#651F27]/40 px-4 py-1.5 backdrop-blur-md mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#e5c158] animate-pulse" />
                 <span className="font-sans text-xs font-semibold tracking-[0.25em] text-[#e5c158] uppercase">
                   {event.category === 'competition' ? `EVENT NO. ${event.number}` : `CHAPTER NO. ${event.number}`}

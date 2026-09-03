@@ -30,7 +30,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: '/assets_webp/prateek.webp',
   },
 
-  // 2. FESTIVAL LEADERSHIP (7 Members Total - Ordered for exact 2-col mobile & 5-col desktop alignment)
+  // 2. FESTIVAL LEADERSHIP (7 Members Total)
   {
     id: 'l1',
     name: 'Nitesh Gurjar',
@@ -53,7 +53,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleHindi: 'महासचिव',
     roleEnglish: 'General Secretary',
     category: 'leadership',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/ajayc.webp',
   },
   {
     id: 'l4',
@@ -62,7 +62,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Treasurer',
     category: 'leadership',
     subCategory: 'Treasurer',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/yuvraj.webp',
   },
   {
     id: 'l5',
@@ -133,7 +133,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'dh7',
-    name: 'Aditya Singh Tomar',
+    name: 'Aditya Tomar',
     roleHindi: 'प्रबंधन प्रमुख',
     roleEnglish: 'Management Lead',
     category: 'core_lead',
@@ -170,22 +170,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: '/assets_webp/Om Chaturvedi.webp',
   },
   {
-    id: 'dh11',
-    name: 'Anku Solanki',
-    roleHindi: 'प्रतियोगिता प्रमुख',
-    roleEnglish: 'Competition Lead',
-    category: 'core_lead',
-    subCategory: 'Competition',
-    image: '/assets_png/sample.png',
-  },
-  {
     id: 'dh12',
     name: 'Anubha Singh',
     roleHindi: 'प्रतियोगिता प्रमुख',
     roleEnglish: 'Competition Lead',
     category: 'core_lead',
     subCategory: 'Competition',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/anubha.webp',
   },
   {
     id: 'dh13',
@@ -201,37 +192,28 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'dh14',
     name: 'Rohit Gaur',
-    roleHindi: 'सामग्री एवं दस्तावेज़ीकरण प्रमुख',
+    roleHindi: 'दस्तावेज़ीकरण प्रमुख',
     roleEnglish: 'Content & Documentation',
     category: 'core_lead',
-    subCategory: 'Content & Documentation',
+    subCategory: 'Content',
     image: '/assets_webp/Rohit.webp',
   },
   {
     id: 'dh15',
-    name: 'Umesh Kumar Mishra',
-    roleHindi: 'सामग्री एवं दस्तावेज़ीकरण प्रमुख',
+    name: 'Umesh Mishra',
+    roleHindi: 'दस्तावेज़ीकरण प्रमुख',
     roleEnglish: 'Content & Documentation',
     category: 'core_lead',
-    subCategory: 'Content & Documentation',
+    subCategory: 'Content',
     image: '/assets_webp/Umesh Kumar Mishra.webp',
-  },
-  {
-    id: 'dh16',
-    name: 'Charu Saxena',
-    roleHindi: 'सामग्री एवं दस्तावेज़ीकरण प्रमुख',
-    roleEnglish: 'Content & Documentation',
-    category: 'core_lead',
-    subCategory: 'Content & Documentation',
-    image: '/assets_png/sample.png',
   },
   {
     id: 'dh17',
     name: 'Astha Sapre',
-    roleHindi: 'सामग्री एवं दस्तावेज़ीकरण प्रमुख',
+    roleHindi: 'दस्तावेज़ीकरण प्रमुख',
     roleEnglish: 'Content & Documentation',
     category: 'core_lead',
-    subCategory: 'Content & Documentation',
+    subCategory: 'Content',
     image: '/assets_webp/Astha Sapre.webp',
   },
 
@@ -330,7 +312,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Videography & Editing Lead',
     category: 'core_lead',
     subCategory: 'Videography & Editing',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/shresth.webp',
   },
   {
     id: 'dh28',

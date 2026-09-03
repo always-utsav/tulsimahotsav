@@ -12,12 +12,11 @@ export default function TeamPage() {
   const leadership = TEAM_MEMBERS.filter((m) => m.category === 'leadership');
   const coreLeads = TEAM_MEMBERS.filter((m) => m.category === 'core_lead');
 
-  // Leadership split: Top 5 for 5-col desktop row 1 (Nitesh, Baldev, Ajay, Yuvraj, Devansh)
-  // and Bottom 2 for centered row 2 (Gaurang, Ananya)
+  // Leadership split for Desktop: Top 5 (Nitesh, Baldev, Ajay, Yuvraj, Devansh) and Bottom 2 (Gaurang, Ananya)
   const leadershipTop5 = leadership.slice(0, 5);
   const leadershipBottom2 = leadership.slice(5, 7);
 
-  // Domain Heads split for desktop centering: Top 25 (5 full rows of 5) and remaining (centered row)
+  // Domain Heads split for Desktop centering: Top 25 (5 full rows of 5) and remaining 3 (centered row)
   const coreLeadsTop = coreLeads.slice(0, 25);
   const coreLeadsBottom = coreLeads.slice(25);
 
@@ -30,7 +29,7 @@ export default function TeamPage() {
       transition={{ duration: 0.4, delay: idx * 0.05 }}
       className={`p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all w-full ${
         isAnanyaTiwari
-          ? 'col-span-2 justify-self-center w-full max-w-[calc(50%-0.375rem)] md:col-span-1 md:max-w-none'
+          ? 'col-span-2 justify-self-center w-full max-w-[calc(50%-0.375rem)] lg:max-w-none'
           : ''
       }`}
     >
@@ -202,7 +201,7 @@ export default function TeamPage() {
                 </div>
                 <div className="flex flex-col text-center sm:text-left">
                   <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1">
-                    WEBSITE TEAM
+                    <Sparkles className="h-3 w-3" /> WEBSITE TEAM
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#651F27] mt-0.5">{member.name}</h3>
                   <span
@@ -220,7 +219,7 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* SECTION 3: FESTIVAL LEADERSHIP (THIRD - 7 Members in standard 5-col width cards) */}
+        {/* SECTION 3: FESTIVAL LEADERSHIP (THIRD) */}
         <div>
           <div className="text-center mb-10">
             <h2
@@ -231,32 +230,34 @@ export default function TeamPage() {
             </h2>
           </div>
 
-          {/* Row 1: Top 5 Leadership Members */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
-            {leadershipTop5.map((member, idx) =>
-              renderLeadershipCard(member, idx, false)
+          {/* MOBILE VIEW (< lg): Single continuous 2-column grid for all 7 leadership cards */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-7xl mx-auto lg:hidden">
+            {leadership.map((member, idx) =>
+              renderLeadershipCard(member, idx, member.id === 'l7')
             )}
           </div>
 
-          {/* Row 2: Bottom 2 Members (Gaurang & Ananya) Centered on Desktop and Mobile */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:flex lg:flex-wrap lg:justify-center gap-3 sm:gap-6 max-w-7xl mx-auto mt-3 sm:mt-6">
-            {leadershipBottom2.map((member, idx) => {
-              const isAnanyaTiwari = member.id === 'l5';
-              return (
-                <div
-                  key={member.id}
-                  className={`w-full lg:w-[calc(20%-1.2rem)] flex ${
-                    isAnanyaTiwari ? 'col-span-2 justify-self-center max-w-[calc(50%-0.375rem)] lg:max-w-none' : ''
-                  }`}
-                >
+          {/* DESKTOP VIEW (lg:): Row 1 has Top 5 + Row 2 has Bottom 2 Centered */}
+          <div className="hidden lg:block space-y-6 max-w-7xl mx-auto">
+            {/* Row 1: Top 5 Leadership Members */}
+            <div className="grid grid-cols-5 gap-6">
+              {leadershipTop5.map((member, idx) =>
+                renderLeadershipCard(member, idx, false)
+              )}
+            </div>
+
+            {/* Row 2: Bottom 2 Members Centered (Gaurang & Ananya) with exact 1/5th column width */}
+            <div className="flex justify-center gap-6">
+              {leadershipBottom2.map((member, idx) => (
+                <div key={member.id} className="w-[calc(20%-1.2rem)] flex">
                   {renderLeadershipCard(member, idx + 5, false)}
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* SECTION 4: DOMAIN HEADS (FOURTH - Reflowed Grid + Centered Leftover Row on Desktop) */}
+        {/* SECTION 4: DOMAIN HEADS (FOURTH) */}
         <div>
           <div className="text-center mb-10">
             <h2
@@ -267,24 +268,29 @@ export default function TeamPage() {
             </h2>
           </div>
 
-          {/* Top 25 Domain Head Cards (5 full rows of 5 on desktop) */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6 max-w-7xl mx-auto">
-            {coreLeadsTop.map((member, idx) => renderDomainHeadCard(member, idx))}
+          {/* MOBILE VIEW (< lg): Single continuous 2-column grid for ALL 28 domain head cards */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-7xl mx-auto lg:hidden">
+            {coreLeads.map((member, idx) => renderDomainHeadCard(member, idx))}
           </div>
 
-          {/* Leftover Domain Head Cards (including Tanushka Sengar) Centered Horizontally on Desktop */}
-          {coreLeadsBottom.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 max-w-7xl mx-auto mt-3 sm:mt-6">
-              {coreLeadsBottom.map((member, idx) => (
-                <div
-                  key={member.id}
-                  className="w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1.2rem)] flex"
-                >
-                  {renderDomainHeadCard(member, idx + 25)}
-                </div>
-              ))}
+          {/* DESKTOP VIEW (lg:): Top 25 (5 full rows of 5) + Bottom 3 (Prem, Krash, Tanushka) Centered */}
+          <div className="hidden lg:block space-y-6 max-w-7xl mx-auto">
+            {/* Top 25 Domain Head Cards (5 full rows of 5 on desktop) */}
+            <div className="grid grid-cols-5 gap-6">
+              {coreLeadsTop.map((member, idx) => renderDomainHeadCard(member, idx))}
             </div>
-          )}
+
+            {/* Leftover 3 Domain Head Cards (Prem Sharma, Krash Dandotiya, Tanushka Sengar) Centered Horizontally on Desktop */}
+            {coreLeadsBottom.length > 0 && (
+              <div className="flex justify-center gap-6">
+                {coreLeadsBottom.map((member, idx) => (
+                  <div key={member.id} className="w-[calc(20%-1.2rem)] flex">
+                    {renderDomainHeadCard(member, idx + 25)}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </PageShell>
