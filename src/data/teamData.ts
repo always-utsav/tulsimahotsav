@@ -176,7 +176,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Competition Lead',
     category: 'core_lead',
     subCategory: 'Competition',
-    image: '/assets_webp/anubha.webp',
+    image: '/assets_webp/Anubha.webp',
   },
   {
     id: 'dh13',

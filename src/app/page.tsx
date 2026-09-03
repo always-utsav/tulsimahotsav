@@ -243,18 +243,12 @@ export default function Home() {
         {/* SECTION 03 — NINE COMPETITIONS INDEX */}
         <section className="relative py-20 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center mb-16">
-            {/* <span className="font-cinzel text-xs font-bold tracking-[0.3em] text-[#C96B2C] uppercase mb-2">
-              COMPETITIONS INDEX · प्रतियोगिताएँ
-            </span> */}
             <h2
               className="font-serif text-3xl sm:text-5xl font-bold text-[#651F27] leading-tight"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
             >
               प्रतियोगिताएँ
             </h2>
-            {/* <p className="font-sans text-sm text-[#191817]/80 mt-2 max-w-xl">
-              Nine distinct competitive arenas celebrating speech, poetry, music, dance, writing, fine art, quizzes, and visual media.
-            </p> */}
           </div>
 
           <div className="space-y-16">

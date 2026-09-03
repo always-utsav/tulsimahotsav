@@ -157,7 +157,7 @@ export default function EventDetailPage() {
           <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
             <FileText className="h-5 w-5 text-[#C96B2C]" />
             <h2 className="font-cinzel text-lg sm:text-xl font-bold text-[#651F27] uppercase tracking-wider">
-              ABOUT THE EVENT · विवरण
+              ABOUT THE EVENT
             </h2>
           </div>
           <p
@@ -204,7 +204,7 @@ export default function EventDetailPage() {
             <div className="flex items-center gap-3 border-b border-[#B28A45]/30 pb-3">
               <CheckCircle2 className="h-5 w-5 text-[#C96B2C]" />
               <h3 className="font-cinzel text-base font-bold text-[#F3E8D0] uppercase tracking-wider">
-                RULES & GUIDELINES · नियम एवं शर्तें
+                RULES & GUIDELINES
               </h3>
             </div>
             <ul className="space-y-2.5">

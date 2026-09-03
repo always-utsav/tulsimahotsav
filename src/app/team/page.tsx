@@ -4,7 +4,7 @@ import React from 'react';
 import { PageShell } from '@/components/Layout/PageShell';
 import { PageHeader } from '@/components/Layout/PageHeader';
 import { TEAM_MEMBERS, TeamMember } from '@/data/teamData';
-import { Code, Sparkles, UserCheck } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function TeamPage() {
