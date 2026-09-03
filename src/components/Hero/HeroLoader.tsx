@@ -4,11 +4,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface HeroLoaderProps {
-  progress: number; // 0 to 1
+  progress: number; // Normalized ratio (0 to 1) or percentage (0 to 100)
 }
 
 export const HeroLoader: React.FC<HeroLoaderProps> = ({ progress }) => {
-  const percentage = Math.round(progress * 100);
+  // Handle both 0..1 normalized ratio and 0..100 percentage values defensively
+  const rawPct = progress <= 1 ? progress * 100 : progress;
+  const percentage = Math.min(100, Math.max(0, Math.round(rawPct)));
 
   return (
     <motion.div

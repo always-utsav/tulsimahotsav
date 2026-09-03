@@ -341,6 +341,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEnglish: 'Decoration & Creative Lead',
     category: 'core_lead',
     subCategory: 'Decoration & Creative',
-    image: '/assets_png/sample.png',
+    image: '/assets_webp/tanushka.webp',
   },
 ];

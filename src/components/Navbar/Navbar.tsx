@@ -117,8 +117,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'border-[#B28A45] bg-[#ECE0C4]/90 text-[#651F27] hover:bg-[#651F27] hover:text-[#F3E8D0] shadow-[0_4px_12px_rgba(101,31,39,0.15)]'
                   : 'border-[#e5c158]/50 bg-[#1a050b]/80 text-[#f7f3e8] hover:text-[#e5c158] shadow-[0_4px_12px_rgba(229,193,88,0.15)]'
               }`}
-              title={isPlaying ? 'Silence the Music' : 'Feel the Music'}
-              aria-label={isPlaying ? 'Silence the Music' : 'Feel the Music'}
+              title={isPlaying ? 'Silence the Music' : 'Turn the Vibe On!'}
+              aria-label={isPlaying ? 'Silence the Music' : 'Turn the Vibe On!'}
             >
               {isPlaying ? (
                 <Volume2 className="h-3.5 w-3.5 text-[#C96B2C] animate-pulse shrink-0" />
@@ -126,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <VolumeX className="h-3.5 w-3.5 text-[#B28A45] shrink-0" />
               )}
               <span className="font-cinzel tracking-[0.1em] font-bold whitespace-nowrap">
-                {isPlaying ? 'Silence the Music' : 'Feel the Music'}
+                {isPlaying ? 'Silence the Music' : 'Turn the Vibe On!'}
               </span>
             </button>
 
@@ -158,8 +158,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? 'border-[#B28A45]/50 bg-[#651F27] text-[#F3E8D0] shadow-sm'
                   : 'border-[#e5c158]/40 bg-[#1a050b]/85 text-[#f7f3e8] shadow-sm'
               }`}
-              title={isPlaying ? 'Silence the Music' : 'Feel the Music'}
-              aria-label={isPlaying ? 'Silence the Music' : 'Feel the Music'}
+              title={isPlaying ? 'Silence the Music' : 'Turn the Vibe On!'}
+              aria-label={isPlaying ? 'Silence the Music' : 'Turn the Vibe On!'}
             >
               {isPlaying ? (
                 <Volume2 className="h-3.5 w-3.5 text-[#C96B2C] animate-pulse shrink-0" />
@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <VolumeX className="h-3.5 w-3.5 opacity-85 shrink-0" />
               )}
               <span className="font-cinzel tracking-wider text-[10px] font-bold whitespace-nowrap">
-                {isPlaying ? 'Silence the Music' : 'Feel the Music'}
+                {isPlaying ? 'Silence the Music' : 'Turn the Vibe On!'}
               </span>
             </button>
 

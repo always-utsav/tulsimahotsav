@@ -117,7 +117,6 @@ export default function TeamPage() {
         {/* SECTION 1: FACULTY COORDINATOR (FIRST) */}
         <div>
           <div className="text-center mb-8">
-            
             <h2
               className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
@@ -133,19 +132,19 @@ export default function TeamPage() {
               transition={{ duration: 0.5 }}
               className="flex flex-col sm:flex-row items-center gap-6 p-5 sm:p-6 rounded-2xl border-2 border-[#B28A45] bg-[#F3E8D0]/90 shadow-xl"
             >
-              {/* Member photo container with locked portrait 3:4 aspect ratio */}
-              <div className="relative w-32 sm:w-36 aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
+              {/* Member photo container with true 1:1 circular aspect ratio */}
+              <div className="relative w-32 h-32 sm:w-36 sm:h-36 aspect-square rounded-full border-2 border-[#B28A45]/70 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
                 <img
-                  src="/assets_png/sample.png"
+                  src="/assets_webp/shubhi.webp"
                   alt="Dr. Shubhi Kansal"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover rounded-lg aspect-[3/4]"
+                  className="w-full h-full object-cover rounded-full aspect-square"
                 />
               </div>
               <div className="flex flex-col text-center sm:text-left">
                 <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1">
-                  <Sparkles className="h-3 w-3" /> FACULTY COORDINATOR
+                  FACULTY COORDINATOR
                 </span>
                 <h3 className="font-serif text-xl font-bold text-[#651F27] mt-0.5">Dr. Shubhi Kansal</h3>
                 <span
@@ -168,7 +167,6 @@ export default function TeamPage() {
         {/* SECTION 2: DIGITAL & DEVELOPMENT ARCHITECTS (SECOND) */}
         <div>
           <div className="text-center mb-10">
-            
             <h2
               className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
               style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
@@ -201,7 +199,7 @@ export default function TeamPage() {
                 </div>
                 <div className="flex flex-col text-center sm:text-left">
                   <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1">
-                    <Sparkles className="h-3 w-3" /> WEBSITE TEAM
+                    WEBSITE TEAM
                   </span>
                   <h3 className="font-serif text-xl font-bold text-[#651F27] mt-0.5">{member.name}</h3>
                   <span

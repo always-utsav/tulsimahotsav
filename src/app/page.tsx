@@ -26,9 +26,9 @@ export default function Home() {
   const [currentFrame, setCurrentFrame] = useState(initialCompleted ? HERO_CONFIG.totalFrames : 1);
 
   const handleLoadProgress = (loadedRatio: number) => {
-    const pct = Math.floor(loadedRatio * 100);
-    setLoadProgress(pct);
-    if (loadedRatio >= 0.25 && !isInitialReady) {
+    const clampedRatio = Math.min(1, Math.max(0, loadedRatio));
+    setLoadProgress(clampedRatio);
+    if (clampedRatio >= 0.25 && !isInitialReady) {
       setIsInitialReady(true);
     }
   };
