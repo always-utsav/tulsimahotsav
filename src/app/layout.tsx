@@ -5,8 +5,11 @@ import { AudioProvider } from '@/context/AudioContext';
 
 export const metadata: Metadata = {
   title: 'Tulsi Mahotsav 2026',
-  description: 'An interactive cinematic title sequence and cultural festival experience celebrating Indian heritage, music, and art direction.',
+  description: 'Tulsi Mahotsav 2026, a cultural festival organized by Hindi Samiti, MITS-DU, Gwalior, celebrating Hindi literature, Indian culture, art, and creativity.',
   keywords: ['Tulsi Mahotsav', 'Cultural Festival', 'Indian Heritage', 'Cinematic Experience', 'Scrollytelling'],
+  icons: {
+  icon: '/assets_webp/logo_favicon.webp',
+},
 };
 
 export default function RootLayout({
