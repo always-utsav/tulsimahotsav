@@ -24,13 +24,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   // Global State B triggers when scrollProgress reaches 0.95 OR on internal routes
   const isGlobalState = isInternalPage || scrollProgress >= 0.95;
 
-  // Exact 8 Nav Items (English only, no Hindi subtitle)
+  // Exact 9 Nav Items (English only, no Hindi subtitle)
   const navItems = [
     { nameLine1: 'HOME', nameLine2: '', href: '/' },
     { nameLine1: 'SCHEDULE', nameLine2: '', href: '/schedule' },
     { nameLine1: 'EVENTS', nameLine2: '', href: '/events' },
     { nameLine1: 'GUEST', nameLine2: '', href: '/guests' },
     { nameLine1: 'TEAM', nameLine2: '', href: '/team' },
+    { nameLine1: 'DEVELOPERS', nameLine2: '', href: '/digital-team' },
     { nameLine1: 'GALLERY', nameLine2: '', href: '/gallery' },
     { nameLine1: 'PARTNERS', nameLine2: '', href: '/partners' },
     { nameLine1: 'CONTACT', nameLine2: '', href: '/contact' },

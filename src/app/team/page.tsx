@@ -8,7 +8,6 @@ import { Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function TeamPage() {
-  const webTeam = TEAM_MEMBERS.filter((m) => m.category === 'web_team');
   const leadership = TEAM_MEMBERS.filter((m) => m.category === 'leadership');
   const coreLeads = TEAM_MEMBERS.filter((m) => m.category === 'core_lead');
 
@@ -107,10 +106,10 @@ export default function TeamPage() {
   return (
     <PageShell>
       <PageHeader
-        titleHindi="हमारी टीम"
+        titleHindi="महोत्सव के शिल्पकार"
         titleEnglish="THE PEOPLE BEHIND THE MAHOTSAV"
-        subtitleHindi="समर्पण, निष्ठा और कला-दृष्टि का संगम।"
-        subtitleEnglish="The student committee, domain leads, and website developers organizing Tulsi Mahotsav 2026"
+        subtitleHindi="करम प्रधान बिस्व करि राखा। जो जस करइ सो तस फल चाखा॥"
+        subtitleEnglish="The student committee and domain leads organizing Tulsi Mahotsav 2026"
       />
 
       <section className="relative py-16 px-4 sm:px-8 lg:px-12 max-w-6xl mx-auto space-y-16">
@@ -157,67 +156,14 @@ export default function TeamPage() {
                   className="font-serif text-xs font-medium text-[#651F27] mt-0.5"
                   style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
                 >
-                  हिंदी समिति, MITS-DU
+                  हिन्दी समिति, MITS-DU
                 </span>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* SECTION 2: DIGITAL & DEVELOPMENT ARCHITECTS (SECOND) */}
-        <div>
-          <div className="text-center mb-10">
-            <h2
-              className="font-serif text-3xl sm:text-4xl font-bold text-[#651F27] leading-tight text-center"
-              style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-            >
-              वेबसाइट एवं डिजिटल टीम
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {webTeam.map((member, idx) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl border-2 border-[#B28A45] bg-[#F3E8D0]/90 shadow-xl"
-              >
-                {/* Member photo container with locked portrait 3:4 aspect ratio */}
-                <div className="relative w-32 sm:w-36 aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1">
-                  <img
-                    src={member.image || '/assets_png/sample.png'}
-                    alt={member.name}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover rounded-lg aspect-[3/4]"
-                    style={{
-                      objectPosition: member.objectPosition || 'center center',
-                    }}
-                  />
-                </div>
-                <div className="flex flex-col text-center sm:text-left">
-                  <span className="font-sans text-[10px] font-bold text-[#C96B2C] uppercase tracking-widest flex items-center justify-center sm:justify-start gap-1">
-                    WEBSITE TEAM
-                  </span>
-                  <h3 className="font-serif text-xl font-bold text-[#651F27] mt-0.5">{member.name}</h3>
-                  <span
-                    className="font-serif text-xs text-[#191817]/85 font-medium mt-1"
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
-                  >
-                    {member.roleHindi}
-                  </span>
-                  <span className="font-sans text-xs font-semibold text-[#651F27]">
-                    {member.roleEnglish}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* SECTION 3: FESTIVAL LEADERSHIP (THIRD) */}
+        {/* SECTION 2: FESTIVAL LEADERSHIP (SECOND) */}
         <div>
           <div className="text-center mb-10">
             <h2

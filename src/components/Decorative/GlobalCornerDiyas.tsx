@@ -6,6 +6,11 @@ import { usePathname } from 'next/navigation';
 export const GlobalCornerDiyas: React.FC = () => {
   const pathname = usePathname();
   const isTeamPage = pathname === '/team' || pathname?.startsWith('/team');
+  const isDigitalTeamPage = pathname === '/digital-team' || pathname?.startsWith('/digital-team');
+
+  if (isDigitalTeamPage) {
+    return null;
+  }
 
   return (
     <div
