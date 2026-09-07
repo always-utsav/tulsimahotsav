@@ -5,7 +5,13 @@ import { createPortal } from 'react-dom';
 import { PageShell } from '@/components/Layout/PageShell';
 import { PageHeader } from '@/components/Layout/PageHeader';
 import { GALLERY_IMAGES } from '@/data/galleryData';
-import { X, ChevronLeft, ChevronRight, Maximize2, ArrowLeft } from 'lucide-react';
+import {
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  ArrowLeft,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function GalleryPage() {
@@ -26,23 +32,34 @@ export default function GalleryPage() {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIdx === null) return;
+
       if (e.key === 'Escape') {
         setSelectedIdx(null);
       } else if (e.key === 'ArrowLeft') {
-        setSelectedIdx((prev) => (prev !== null && prev > 0 ? prev - 1 : GALLERY_IMAGES.length - 1));
+        setSelectedIdx((prev) =>
+          prev !== null && prev > 0
+            ? prev - 1
+            : GALLERY_IMAGES.length - 1
+        );
       } else if (e.key === 'ArrowRight') {
-        setSelectedIdx((prev) => (prev !== null && prev < GALLERY_IMAGES.length - 1 ? prev + 1 : 0));
+        setSelectedIdx((prev) =>
+          prev !== null && prev < GALLERY_IMAGES.length - 1
+            ? prev + 1
+            : 0
+        );
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
   }, [selectedIdx]);
 
-  const selectedImage = selectedIdx !== null ? GALLERY_IMAGES[selectedIdx] : null;
+  const selectedImage =
+    selectedIdx !== null ? GALLERY_IMAGES[selectedIdx] : null;
 
   return (
     <PageShell>
@@ -70,8 +87,11 @@ export default function GalleryPage() {
                 <img
                   src={item.src}
                   alt={item.titleHindi}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
+
                 {/* Subtle Dark Linear Bottom Gradient Overlay for High Text Readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#100305]/95 via-[#100305]/40 to-transparent pointer-events-none z-10" />
               </div>
@@ -81,11 +101,14 @@ export default function GalleryPage() {
                 <div>
                   <span
                     className="font-serif text-lg font-bold text-[#F3E8D0] block drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"
-                    style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                    style={{
+                      fontFamily: "'Noto Serif Devanagari', serif",
+                    }}
                   >
                     {item.titleHindi}
                   </span>
                 </div>
+
                 <div className="p-2 rounded-full border border-[#B28A45]/40 bg-[#651F27]/80 text-[#F3E8D0] group-hover:bg-[#C96B2C] transition-colors shrink-0 shadow-md">
                   <Maximize2 className="h-4 w-4" />
                 </div>
@@ -114,7 +137,9 @@ export default function GalleryPage() {
                   aria-label="Back to gallery"
                 >
                   <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-                  <span className="font-cinzel text-xs font-bold tracking-widest uppercase">BACK</span>
+                  <span className="font-cinzel text-xs font-bold tracking-widest uppercase">
+                    BACK
+                  </span>
                 </button>
 
                 {/* Top-Right Counter & Close Button */}
@@ -122,6 +147,7 @@ export default function GalleryPage() {
                   <span className="font-cinzel text-xs font-bold text-[#C96B2C] tracking-widest uppercase bg-[#191817]/80 px-3.5 py-1.5 rounded-full border border-[#B28A45]/30 shadow-lg hidden sm:inline-block">
                     {selectedIdx + 1} / {GALLERY_IMAGES.length}
                   </span>
+
                   <button
                     onClick={() => setSelectedIdx(null)}
                     className="p-2.5 rounded-full border-2 border-[#B28A45]/50 bg-[#651F27] text-[#F3E8D0] hover:bg-[#C96B2C] transition-colors shadow-2xl"
@@ -135,7 +161,9 @@ export default function GalleryPage() {
                 <button
                   onClick={() =>
                     setSelectedIdx((prev) =>
-                      prev !== null && prev > 0 ? prev - 1 : GALLERY_IMAGES.length - 1
+                      prev !== null && prev > 0
+                        ? prev - 1
+                        : GALLERY_IMAGES.length - 1
                     )
                   }
                   className="fixed left-2 sm:left-6 top-1/2 -translate-y-1/2 z-[10000] p-3.5 rounded-full border border-[#B28A45]/50 bg-[#651F27]/90 text-[#F3E8D0] hover:bg-[#C96B2C] transition-colors shadow-2xl"
@@ -161,7 +189,9 @@ export default function GalleryPage() {
                   <div className="text-center mt-3 max-w-2xl px-2 shrink-0">
                     <h3
                       className="font-serif text-lg sm:text-2xl font-bold text-[#F3E8D0]"
-                      style={{ fontFamily: "'Noto Serif Devanagari', serif" }}
+                      style={{
+                        fontFamily: "'Noto Serif Devanagari', serif",
+                      }}
                     >
                       {selectedImage.titleHindi}
                     </h3>
@@ -172,7 +202,9 @@ export default function GalleryPage() {
                 <button
                   onClick={() =>
                     setSelectedIdx((prev) =>
-                      prev !== null && prev < GALLERY_IMAGES.length - 1 ? prev + 1 : 0
+                      prev !== null && prev < GALLERY_IMAGES.length - 1
+                        ? prev + 1
+                        : 0
                     )
                   }
                   className="fixed right-2 sm:right-6 top-1/2 -translate-y-1/2 z-[10000] p-3.5 rounded-full border border-[#B28A45]/50 bg-[#651F27]/90 text-[#F3E8D0] hover:bg-[#C96B2C] transition-colors shadow-2xl"
