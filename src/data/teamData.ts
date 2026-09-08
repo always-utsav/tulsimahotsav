@@ -257,15 +257,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     image: '/assets_webp/Aryan-Shrivastava_.webp',
   },
   {
-    id: 'dh22',
-    name: 'Satwik Dubey',
-    roleHindi: 'प्रचार एवं जनसंपर्क प्रमुख',
-    roleEnglish: 'Promotions & PR',
-    category: 'core_lead',
-    subCategory: 'Promotions & PR',
-    image: '/assets_webp/satwik dubey.webp',
-  },
-  {
     id: 'dh23',
     name: 'Jagrati Singhal',
     roleHindi: 'प्रचार एवं जनसंपर्क प्रमुख',
