@@ -19,11 +19,21 @@ import { getHeroCompleted, setHeroCompleted } from '@/utils/heroState';
 
 export default function Home() {
   const initialCompleted = getHeroCompleted();
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
   const [loadProgress, setLoadProgress] = useState(0);
   const [isInitialReady, setIsInitialReady] = useState(initialCompleted);
   
   const targetFrameRef = useRef<number>(initialCompleted ? HERO_CONFIG.totalFrames : 1);
   const [currentFrame, setCurrentFrame] = useState(initialCompleted ? HERO_CONFIG.totalFrames : 1);
+
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
 
   const handleLoadProgress = (loadedRatio: number) => {
     const clampedRatio = Math.min(1, Math.max(0, loadedRatio));
@@ -50,6 +60,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (!isDesktop) return;
+
     const TOTAL_FRAMES = HERO_CONFIG.totalFrames;
 
     const handleWheel = (e: WheelEvent) => {
@@ -104,7 +116,7 @@ export default function Home() {
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [isDesktop]);
 
   const normalizedProgress = (currentFrame - 1) / (HERO_CONFIG.totalFrames - 1);
 
@@ -114,26 +126,30 @@ export default function Home() {
     }
   }, [normalizedProgress]);
 
+  const activeHeroScrollProgress = isDesktop === false ? 1 : normalizedProgress;
+
   return (
-    <PageShell isHomeHeroPage={true} heroScrollProgress={normalizedProgress}>
+    <PageShell isHomeHeroPage={isDesktop ?? true} heroScrollProgress={activeHeroScrollProgress}>
       <AnimatePresence>
-        {!isInitialReady && <HeroLoader progress={loadProgress} />}
+        {isDesktop && !isInitialReady && <HeroLoader progress={loadProgress} />}
       </AnimatePresence>
 
       {/* Persistent Navbar */}
-      <Navbar scrollProgress={normalizedProgress} />
+      <Navbar scrollProgress={activeHeroScrollProgress} isInternalPage={isDesktop === false} />
 
-      {/* 1. CINEMATIC HERO SECTION */}
-      <section className="relative w-screen h-screen overflow-hidden bg-[#0a0204]">
-        <HeroCanvas
-          currentFrameIndex={currentFrame}
-          onLoadProgress={handleLoadProgress}
-        />
-        <HeroOverlay currentFrame={Math.round(currentFrame)} />
-      </section>
+      {/* 1. CINEMATIC HERO SECTION (DESKTOP ONLY) */}
+      {isDesktop && (
+        <section className="relative w-screen h-screen overflow-hidden bg-[#0a0204]">
+          <HeroCanvas
+            currentFrameIndex={currentFrame}
+            onLoadProgress={handleLoadProgress}
+          />
+          <HeroOverlay currentFrame={Math.round(currentFrame)} />
+        </section>
+      )}
 
       {/* 2. MAIN CONTENT SURFACE (WARM MUTED PARCHMENT TAN BASE) */}
-      <div className="relative z-10 w-full bg-[#F4EAD3] text-[#191817]">
+      <div className={`relative z-10 w-full bg-[#F4EAD3] text-[#191817] ${isDesktop === false ? 'pt-14 sm:pt-16 md:pt-0' : ''}`}>
         
         {/* Orbital System transition accent */}
         <DecorativeOrbitalSystem variant="center" />
