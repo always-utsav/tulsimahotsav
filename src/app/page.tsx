@@ -25,7 +25,11 @@ export default function Home() {
   const [splashCompleted, setSplashCompleted] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
   const [isInitialReady, setIsInitialReady] = useState(initialCompleted);
-  
+
+  const handleSplashComplete = React.useCallback(() => {
+    setSplashCompleted(true);
+  }, []);
+
   const targetFrameRef = useRef<number>(initialCompleted ? HERO_CONFIG.totalFrames : 1);
   const [currentFrame, setCurrentFrame] = useState(initialCompleted ? HERO_CONFIG.totalFrames : 1);
 
@@ -137,7 +141,7 @@ export default function Home() {
     <PageShell isHomeHeroPage={isDesktop === true} heroScrollProgress={activeHeroScrollProgress}>
       {/* Mobile-Only Cinematic Splash Experience */}
       {isDesktop !== true && !splashCompleted && (
-        <MobileCinematicSplash onComplete={() => setSplashCompleted(true)} />
+        <MobileCinematicSplash onComplete={handleSplashComplete} />
       )}
 
       <AnimatePresence>

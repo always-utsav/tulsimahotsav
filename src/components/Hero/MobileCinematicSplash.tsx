@@ -11,13 +11,16 @@ interface MobileCinematicSplashProps {
  * MobileCinematicSplash
  * Direct Mobile Splash Experience:
  * - Plays mobile-hero-2.mp4 fullscreen on mobile with audio enabled by default.
- * - If browser blocks unmuted autoplay, gracefully falls back to muted autoplay.
- * - On video end (or failsafe), smoothly fades out over ~700ms directly revealing the mobile homepage underneath.
+ * - Robust audio-first autoplay: attempts unmuted autoplay, silently falls back to muted autoplay if restricted by browser policy.
+ * - Single-flight playback state machine: retries on canplay if media is buffering on cold load; never dismisses splash prematurely on slow networks.
+ * - Exits ONLY when video genuinely finishes (onEnded) or unrecoverable error occurs (onError), using a smooth 700ms fade transition.
  */
 export const MobileCinematicSplash: React.FC<MobileCinematicSplashProps> = ({ onComplete }) => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const hasTriggeredExit = useRef(false);
+  const isPlayingRef = useRef(false);
+  const isAttemptingRef = useRef(false);
 
   // Lock body scroll while splash experience is active
   useEffect(() => {
@@ -33,7 +36,7 @@ export const MobileCinematicSplash: React.FC<MobileCinematicSplashProps> = ({ on
     setIsFadingOut(true);
   }, []);
 
-  // Completion trigger after fade out transition completes
+  // Completion trigger after 700ms fade out transition completes
   useEffect(() => {
     if (isFadingOut) {
       const completionTimer = setTimeout(() => {
@@ -43,35 +46,37 @@ export const MobileCinematicSplash: React.FC<MobileCinematicSplashProps> = ({ on
     }
   }, [isFadingOut, onComplete]);
 
-  // Audio-First Autoplay with Muted Fallback & Video Failsafe Timer
-  useEffect(() => {
-    if (videoRef.current) {
-      const video = videoRef.current;
+  // Audio-First Autoplay Handler
+  const attemptPlay = useCallback(async () => {
+    const video = videoRef.current;
+    if (!video || isPlayingRef.current || isAttemptingRef.current) return;
+    isAttemptingRef.current = true;
+
+    try {
+      // Attempt 1: Unmuted Autoplay (Audio Enabled by Default)
       video.muted = false;
-
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn(
-            '[MobileCinematicSplash] Unmuted autoplay blocked by browser policy, falling back to muted autoplay:',
-            err
-          );
-          // Fallback: Enable muted mode and retry autoplay
-          video.muted = true;
-          video.play().catch((mutedErr) => {
-            console.warn('[MobileCinematicSplash] Muted autoplay also blocked, bypassing splash:', mutedErr);
-            onComplete();
-          });
-        });
+      await video.play();
+      isPlayingRef.current = true;
+    } catch (err) {
+      console.warn('[MobileCinematicSplash] Unmuted autoplay restricted, attempting muted fallback:', err);
+      try {
+        // Attempt 2: Muted Autoplay Fallback (Silent Fallback)
+        video.muted = true;
+        await video.play();
+        isPlayingRef.current = true;
+      } catch (mutedErr) {
+        console.warn('[MobileCinematicSplash] Autoplay pending media stream or gesture:', mutedErr);
+        // Do NOT set isPlayingRef = true here so onCanPlay can retry when bytes arrive!
       }
+    } finally {
+      isAttemptingRef.current = false;
     }
+  }, []);
 
-    const videoFailsafeTimer = setTimeout(() => {
-      triggerExit();
-    }, 4200); // 4.2s failsafe max video duration
-
-    return () => clearTimeout(videoFailsafeTimer);
-  }, [triggerExit, onComplete]);
+  // Trigger initial playback attempt on mount
+  useEffect(() => {
+    attemptPlay();
+  }, [attemptPlay]);
 
   return (
     <motion.div
@@ -85,10 +90,15 @@ export const MobileCinematicSplash: React.FC<MobileCinematicSplashProps> = ({ on
         src="/assets_webp/mobile-hero-2.mp4"
         autoPlay
         playsInline
+        preload="auto"
+        onCanPlay={attemptPlay}
+        onPlaying={() => {
+          isPlayingRef.current = true;
+        }}
         onEnded={triggerExit}
-        onError={() => {
-          console.warn('[MobileCinematicSplash] Video load error, bypassing splash');
-          onComplete();
+        onError={(e) => {
+          console.warn('[MobileCinematicSplash] Unrecoverable video load error, completing splash:', e);
+          triggerExit();
         }}
         className="w-full h-full object-cover block"
       />
