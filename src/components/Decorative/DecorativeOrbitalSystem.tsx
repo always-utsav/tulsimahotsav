@@ -38,6 +38,8 @@ export const DecorativeOrbitalSystem: React.FC<DecorativeOrbitalSystemProps> = (
         <motion.img
           src={isLeft ? SITE_CONFIG.assets.leftCircle : SITE_CONFIG.assets.rightCircle}
           alt=""
+          loading="lazy"
+          decoding="async"
           animate={{ rotate: isLeft ? 360 : -360 }}
           transition={{ duration: 100, repeat: Infinity, ease: 'linear' }}
           className="w-full h-full object-contain"

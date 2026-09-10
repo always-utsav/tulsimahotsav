@@ -107,6 +107,8 @@ export default function EventDetailPage() {
                 <img
                   src={event.illustration}
                   alt={event.titleHindi}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover rounded-[14px] overflow-hidden shadow-lg border border-[#e5c158]/30"
                 />
               </motion.div>

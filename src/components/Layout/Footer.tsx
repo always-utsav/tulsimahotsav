@@ -16,6 +16,8 @@ export const Footer: React.FC = () => {
         <img
           src={SITE_CONFIG.assets.footer}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover filter drop-shadow-[0_6px_15px_rgba(0,0,0,0.3)] opacity-75 pointer-events-none"
         />
 
@@ -49,6 +51,8 @@ export const Footer: React.FC = () => {
                 <img
                   src={SITE_CONFIG.assets.logo}
                   alt="Tulsi Mahotsav Logo"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>

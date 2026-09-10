@@ -78,6 +78,8 @@ export default function EventsMasterPage() {
                 <img
                   src={event.illustration}
                   alt={event.titleHindi}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 opacity-95"
                 />
                 <div className="absolute top-4 left-4 px-3.5 py-1 rounded-full border border-[#B28A45] bg-[#F3E8D0] text-[#651F27] text-[10px] font-sans font-extrabold uppercase tracking-widest shadow-md">

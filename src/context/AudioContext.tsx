@@ -14,8 +14,9 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Single persistent Audio instance across the application
+    // Single persistent Audio instance across the application (on-demand loading only)
     const audio = new Audio('/music/tulsi-mahotsav-music.mp3');
+    audio.preload = 'none';
     audio.loop = true;
     audioRef.current = audio;
 

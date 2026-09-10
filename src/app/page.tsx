@@ -6,9 +6,11 @@ import { PageShell } from '@/components/Layout/PageShell';
 import { HeroCanvas } from '@/components/Hero/HeroCanvas';
 import { HeroOverlay } from '@/components/Hero/HeroOverlay';
 import { HeroLoader } from '@/components/Hero/HeroLoader';
+import { MobileCinematicSplash } from '@/components/Hero/MobileCinematicSplash';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { DecorativeOrbitalSystem } from '@/components/Decorative/DecorativeOrbitalSystem';
 import { MandalaMotion } from '@/components/Decorative/MandalaMotion';
+import { MobileHomepageMandalaHero } from '@/components/Decorative/MobileHomepageMandalaHero';
 import { COMPETITIONS, FEATURED_NIGHTS } from '@/data/eventsData';
 import { SITE_CONFIG } from '@/config/siteConfig';
 import { HERO_CONFIG } from '@/config/heroConfig';
@@ -20,6 +22,7 @@ import { getHeroCompleted, setHeroCompleted } from '@/utils/heroState';
 export default function Home() {
   const initialCompleted = getHeroCompleted();
   const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+  const [splashCompleted, setSplashCompleted] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
   const [isInitialReady, setIsInitialReady] = useState(initialCompleted);
   
@@ -130,12 +133,14 @@ export default function Home() {
 
   return (
     <PageShell isHomeHeroPage={isDesktop ?? true} heroScrollProgress={activeHeroScrollProgress}>
+      {/* Mobile-Only Cinematic Splash Experience */}
+      {isDesktop === false && !splashCompleted && (
+        <MobileCinematicSplash onComplete={() => setSplashCompleted(true)} />
+      )}
+
       <AnimatePresence>
         {isDesktop && !isInitialReady && <HeroLoader progress={loadProgress} />}
       </AnimatePresence>
-
-      {/* Persistent Navbar */}
-      <Navbar scrollProgress={activeHeroScrollProgress} isInternalPage={isDesktop === false} />
 
       {/* 1. CINEMATIC HERO SECTION (DESKTOP ONLY) */}
       {isDesktop && (
@@ -148,8 +153,11 @@ export default function Home() {
         </section>
       )}
 
+      {/* 1. ISOLATED MANDALA HERO SECTION (MOBILE ONLY) */}
+      {isDesktop === false && <MobileHomepageMandalaHero />}
+
       {/* 2. MAIN CONTENT SURFACE (WARM MUTED PARCHMENT TAN BASE) */}
-      <div className={`relative z-10 w-full bg-[#F4EAD3] text-[#191817] ${isDesktop === false ? 'pt-14 sm:pt-16 md:pt-0' : ''}`}>
+      <div className="relative z-10 w-full bg-[#F4EAD3] text-[#191817]">
         
         {/* Orbital System transition accent */}
         <DecorativeOrbitalSystem variant="center" />
