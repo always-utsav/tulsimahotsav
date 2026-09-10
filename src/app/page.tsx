@@ -47,6 +47,8 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if (isDesktop !== true) return;
+
     let animationFrameId: number;
 
     const renderLoop = () => {
@@ -60,7 +62,7 @@ export default function Home() {
 
     animationFrameId = requestAnimationFrame(renderLoop);
     return () => cancelAnimationFrame(animationFrameId);
-  }, []);
+  }, [isDesktop]);
 
   useEffect(() => {
     if (!isDesktop) return;
@@ -129,21 +131,21 @@ export default function Home() {
     }
   }, [normalizedProgress]);
 
-  const activeHeroScrollProgress = isDesktop === false ? 1 : normalizedProgress;
+  const activeHeroScrollProgress = isDesktop === true ? normalizedProgress : 1;
 
   return (
-    <PageShell isHomeHeroPage={isDesktop ?? true} heroScrollProgress={activeHeroScrollProgress}>
+    <PageShell isHomeHeroPage={isDesktop === true} heroScrollProgress={activeHeroScrollProgress}>
       {/* Mobile-Only Cinematic Splash Experience */}
-      {isDesktop === false && !splashCompleted && (
+      {isDesktop !== true && !splashCompleted && (
         <MobileCinematicSplash onComplete={() => setSplashCompleted(true)} />
       )}
 
       <AnimatePresence>
-        {isDesktop && !isInitialReady && <HeroLoader progress={loadProgress} />}
+        {isDesktop === true && !isInitialReady && <HeroLoader progress={loadProgress} />}
       </AnimatePresence>
 
       {/* 1. CINEMATIC HERO SECTION (DESKTOP ONLY) */}
-      {isDesktop && (
+      {isDesktop === true && (
         <section className="relative w-screen h-screen overflow-hidden bg-[#0a0204]">
           <HeroCanvas
             currentFrameIndex={currentFrame}
@@ -154,7 +156,7 @@ export default function Home() {
       )}
 
       {/* 1. ISOLATED MANDALA HERO SECTION (MOBILE ONLY) */}
-      {isDesktop === false && <MobileHomepageMandalaHero />}
+      {isDesktop !== true && <MobileHomepageMandalaHero />}
 
       {/* 2. MAIN CONTENT SURFACE (WARM MUTED PARCHMENT TAN BASE) */}
       <div className="relative z-10 w-full bg-[#F4EAD3] text-[#191817]">

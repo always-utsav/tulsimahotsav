@@ -36,7 +36,8 @@ export const MobileHomepageMandalaHero: React.FC<MobileHomepageMandalaHeroProps>
           <motion.img
             src="/assets_no_bg/ornamental-mandala.webp"
             alt="Tulsi Mahotsav Mandala"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             animate={{ rotate: 360 }}
             transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
@@ -47,7 +48,8 @@ export const MobileHomepageMandalaHero: React.FC<MobileHomepageMandalaHeroProps>
           <img
             src="/assets_webp/home-page-hero.webp"
             alt="Tulsi Mahotsav 2026"
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             className="absolute inset-[25%] w-[50%] h-[50%] object-contain block drop-shadow-xl"
           />
@@ -55,7 +57,7 @@ export const MobileHomepageMandalaHero: React.FC<MobileHomepageMandalaHeroProps>
       </div>
 
       {/* Lower Central Full-Width Festival Title Overlay Layer (Text Layer: 1.00 Opacity) */}
-      <div className="absolute left-1/2 bottom-[8%] sm:bottom-[10%] -translate-x-1/2 w-full max-w-[90%] mx-auto z-10 pointer-events-none text-center flex flex-col items-center justify-center">
+      <div className="absolute left-1/2 bottom-[1%] sm:bottom-[1%] -translate-x-1/2 w-full max-w-[90%] mx-auto z-10 pointer-events-none text-center flex flex-col items-center justify-center">
         <h1
           className="text-[33px] xs:text-[26px] sm:text-3xl md:text-4xl font-black tracking-[0.05em] text-[#F7F3E8] uppercase leading-none whitespace-nowrap"
           style={{
@@ -70,7 +72,7 @@ export const MobileHomepageMandalaHero: React.FC<MobileHomepageMandalaHeroProps>
         <div className="flex items-center justify-center gap-2 mt-1 sm:mt-1.5">
           <span className="h-[1px] w-4 sm:w-6 bg-gradient-to-r from-transparent to-[#E5C158]" />
           <span
-            className="text-base sm:text-sm font-bold tracking-[0.25em] text-[#E5C158] uppercase"
+            className=" pt-1 text-base sm:text-sm font-bold tracking-[0.25em] text-[#E5C158] uppercase"
             style={{
               fontFamily: 'var(--font-cinzel), serif',
               textShadow: '0 1px 4px rgba(0,0,0,0.8)',
