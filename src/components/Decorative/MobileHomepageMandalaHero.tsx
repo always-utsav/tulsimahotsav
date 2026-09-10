@@ -46,7 +46,7 @@ export const MobileHomepageMandalaHero: React.FC<MobileHomepageMandalaHeroProps>
 
           {/* Inner Layer: Static home-page-hero.webp Center Artwork — COMPLETELY STATIC (NO ROTATION) */}
           <img
-            src="/assets_webp/home-page-hero.webp"
+            src="/assets_webp/hero.webp"
             alt="Tulsi Mahotsav 2026"
             loading="eager"
             fetchPriority="high"
