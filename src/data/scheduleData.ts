@@ -58,15 +58,6 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       },
       {
         id: 's5',
-        time: '05:00 PM – 06:00 PM',
-        titleHindi: 'भजन संध्या',
-        titleEnglish: 'Devotional Ragas & Soulful Chants',
-        venue: "Director's Lawn",
-        category: 'cultural',
-        isHighlight: true,
-      },
-      {
-        id: 's6',
         time: '06:00 PM – 07:00 PM',
         titleHindi: 'दीपोत्सव',
         titleEnglish: 'Mass Illumination of Earthen Lamps & Cultural Aarti',
@@ -75,7 +66,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
         isHighlight: true,
       },
       {
-        id: 's7',
+        id: 's6',
         time: '06:00 PM – 08:00 PM',
         titleHindi: 'अखिल भारतीय कवि सम्मेलन',
         titleEnglish: 'Eminent Invited Renowned Poets & Kavyapath Winners Showcase',
@@ -84,7 +75,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
         isHighlight: true,
       },
       {
-        id: 's8',
+        id: 's7',
         time: '11:00 AM – 08:00 PM',
         titleHindi: 'कला प्रदर्शनी',
         titleEnglish: 'Fine Arts & Cultural Handicrafts Exposition',
@@ -92,7 +83,7 @@ export const SCHEDULE_DATA: DaySchedule[] = [
         category: 'competition',
       },
       {
-        id: 's9',
+        id: 's8',
         time: '11:00 AM – 08:00 PM',
         titleHindi: 'व्यंजन मेला एवं पुस्तक प्रदर्शनी',
         titleEnglish: 'Traditional Cuisines & Literary Exposition',
@@ -104,8 +95,8 @@ export const SCHEDULE_DATA: DaySchedule[] = [
   {
     dayNumber: '02',
     dateDisplay: '27 SEPTEMBER 2026',
-    dayHindi: 'द्वितीय दिवस : साहित्य, कला, समापन एवं ग्रैंड म्यूजिकल नाइट',
-    dayEnglish: 'Day Two : Literature, Music, Valedictory & Grand Musical Night',
+    dayHindi: 'द्वितीय दिवस : साहित्य, कला, समापन एवं भजन क्लबिंग कॉन्सर्ट',
+    dayEnglish: 'Day Two : Literature, Music, Valedictory & Bhajan Clubbing Concert',
     items: [
       {
         id: 's10',
@@ -151,8 +142,8 @@ export const SCHEDULE_DATA: DaySchedule[] = [
       {
         id: 's15',
         time: '06:00 PM – 08:00 PM',
-        titleHindi: 'ग्रैंड म्यूजिकल नाइट',
-        titleEnglish: 'Spectacular Musical Finale & Cultural Closing Evening',
+        titleHindi: 'भजन क्लबिंग कॉन्सर्ट',
+        titleEnglish: 'Bhajan Clubbing Concert & Spectacular Closing Evening',
         venue: 'Stage Ground',
         category: 'cultural',
         isHighlight: true,
