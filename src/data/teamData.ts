@@ -64,15 +64,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     subCategory: 'Treasurer',
     image: '/assets_webp/yuvraj.webp',
   },
-  {
-    id: 'l5',
-    name: 'Gaurang Sharma',
-    roleHindi: 'कोषाध्यक्ष',
-    roleEnglish: 'Treasurer',
-    category: 'leadership',
-    subCategory: 'Treasurer',
-    image: '/assets_webp/gaurang-sharma.webp',
-  },
+
   {
     id: 'l6',
     name: 'Devansh Rai',
@@ -91,25 +83,15 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
 
   // 3. DOMAIN HEADS (Yuvraj and Gaurang moved to Leadership above)
-  // SPONSOR
-  {
-    id: 'dh3',
-    name: 'Abhay Sharma',
-    roleHindi: 'प्रायोजन प्रमुख',
-    roleEnglish: 'Sponsor Lead',
-    category: 'core_lead',
-    subCategory: 'Sponsorship',
-    image: '/assets_webp/abhay-sharma.webp',
-  },
-
+  // 4th YEAR SENIORS & DOMAIN HEADS
   {
     id: 'dh4',
-    name: 'Dhruv Verma',
-    roleHindi: 'प्रायोजन प्रमुख',
-    roleEnglish: 'Sponsor Lead',
+    name: 'Gaurang Sharma',
+    roleHindi: 'वरिष्ठ सदस्य',
+    roleEnglish: 'Senior Member',
     category: 'core_lead',
-    subCategory: 'Sponsorship',
-    image: '/assets_webp/Dhruv_Verma.webp',
+    subCategory: 'Senior Member',
+    image: '/assets_webp/gaurang-sharma.webp',
   },
   {
     id: 'dh5',
@@ -119,6 +101,33 @@ export const TEAM_MEMBERS: TeamMember[] = [
     category: 'core_lead',
     subCategory: 'Sponsorship',
     image: '/assets_webp/Dhruv Sharma.webp',
+  },
+  {
+    id: 'dh18',
+    name: 'Prasanna Saxena',
+    roleHindi: 'तकनीकी प्रमुख',
+    roleEnglish: 'Technical',
+    category: 'core_lead',
+    subCategory: 'Technical',
+    image: '/assets_webp/PRASANNA_SAXENA.webp',
+  },
+  {
+    id: 'dh27',
+    name: 'Shresth Bharti',
+    roleHindi: 'वीडियो संपादन प्रमुख',
+    roleEnglish: 'Videography & Editing Lead',
+    category: 'core_lead',
+    subCategory: 'Videography & Editing',
+    image: '/assets_webp/shresth.webp',
+  },
+  {
+    id: 'dh3',
+    name: 'Abhay Sharma',
+    roleHindi: 'प्रायोजन प्रमुख',
+    roleEnglish: 'Sponsor Lead',
+    category: 'core_lead',
+    subCategory: 'Sponsorship',
+    image: '/assets_webp/abhay-sharma.webp',
   },
 
   // MANAGEMENT
@@ -218,15 +227,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
 
   // TECHNICAL & SOCIAL MEDIA
-  {
-    id: 'dh18',
-    name: 'Prasanna Saxena',
-    roleHindi: 'तकनीकी प्रमुख',
-    roleEnglish: 'Technical',
-    category: 'core_lead',
-    subCategory: 'Technical',
-    image: '/assets_webp/PRASANNA_SAXENA.webp',
-  },
+
   {
     id: 'dh19',
     name: 'Adarsh Mishra',
@@ -296,15 +297,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
 
   // VIDEOGRAPHY & EDITING
-  {
-    id: 'dh27',
-    name: 'Shresth Bharti',
-    roleHindi: 'वीडियो संपादन प्रमुख',
-    roleEnglish: 'Videography & Editing Lead',
-    category: 'core_lead',
-    subCategory: 'Videography & Editing',
-    image: '/assets_webp/shresth.webp',
-  },
+
   {
     id: 'dh28',
     name: 'Prem Sharma',
@@ -333,5 +326,25 @@ export const TEAM_MEMBERS: TeamMember[] = [
     category: 'core_lead',
     subCategory: 'Decoration & Creative',
     image: '/assets_webp/tanushka.webp',
+  },
+
+  // DISCIPLINE HEADS
+  {
+    id: 'dh31',
+    name: 'Anmol Choubey',
+    roleHindi: 'अनुशासन प्रमुख',
+    roleEnglish: 'Discipline Head',
+    category: 'core_lead',
+    subCategory: 'Discipline',
+    image: '/assets_webp/anmol-choubey.webp',
+  },
+  {
+    id: 'dh32',
+    name: 'Shivam Atare',
+    roleHindi: 'अनुशासन प्रमुख',
+    roleEnglish: 'Discipline Head',
+    category: 'core_lead',
+    subCategory: 'Discipline',
+    image: '/assets_webp/shivam-atare.webp',
   },
 ];

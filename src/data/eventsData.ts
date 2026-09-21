@@ -350,33 +350,11 @@ export const FEATURED_NIGHTS: FestivalEvent[] = [
     prizes: '',
   },
 
-  // 02. Bhajan Sandhya
-  {
-    id: 'bhajan-sandhya',
-    slug: 'bhajan-sandhya',
-    number: '02',
-    titleHindi: 'भजन संध्या',
-    titleEnglish: 'Bhajan Sandhya',
-    category: 'featured_night',
-    illustration: '/assets_webp/bhajan-sandhya.webp',
-    taglineHindi: 'भक्ति और संगीत की संगीतमय संध्या।',
-    taglineEnglish: 'An evening of devotion and music.',
-    aboutHindi: 'भजन संध्या में भक्ति संगीत, शास्त्रीय रागों और आध्यात्मिक प्रस्तुतियों का भव्य आयोजन होगा, जो प्रांगण को भक्तिमय वातावरण से परिपूर्ण करेगा।',
-    aboutEnglish: 'A devotional evening of classical ragas, soulful bhajans, and spiritual compositions set against the serene ambiance of Director\'s Lawn.',
-    date: '26 September 2026',
-    time: '05:00 PM – 06:00 PM',
-    venue: 'Director\'s Lawn, MITS-DU Gwalior',
-    whoCanParticipate: 'Open to all mahotsav attendees.',
-    format: ['Devotional Music Performance', 'Classical Raga Chants'],
-    rules: ['Maintain quiet decorum during spiritual music recitals.'],
-    prizes: '',
-  },
-
-  // 03. Deepotsav
+  // 02. Deepotsav
   {
     id: 'deepotsav',
     slug: 'deepotsav',
-    number: '03',
+    number: '02',
     titleHindi: 'दीपोत्सव',
     titleEnglish: 'Deepotsav',
     category: 'featured_night',
@@ -394,11 +372,11 @@ export const FEATURED_NIGHTS: FestivalEvent[] = [
     prizes: '',
   },
 
-  // 04. Akhil Bhartiya Kavi Sammelan
+  // 03. Akhil Bhartiya Kavi Sammelan
   {
     id: 'kavi-sammelan',
     slug: 'kavi-sammelan',
-    number: '04',
+    number: '03',
     titleHindi: 'अखिल भारतीय कवि सम्मेलन',
     titleEnglish: 'Akhil Bhartiya Kavi Sammelan',
     category: 'featured_night',
@@ -416,11 +394,11 @@ export const FEATURED_NIGHTS: FestivalEvent[] = [
     prizes: '',
   },
 
-  // 05. Samapan Samaroh
+  // 04. Samapan Samaroh
   {
     id: 'samapan',
     slug: 'samapan',
-    number: '05',
+    number: '04',
     titleHindi: 'समापन समारोह',
     titleEnglish: 'Samapan Samaroh / Closing Ceremony',
     category: 'featured_night',
@@ -438,19 +416,19 @@ export const FEATURED_NIGHTS: FestivalEvent[] = [
     prizes: '₹2,00,000+ overall prize pool disbursed during ceremony.',
   },
 
-  // 06. Grand Musical Night
+  // 05. Bhajan Clubbing Concert
   {
     id: 'grand-musical-night',
     slug: 'grand-musical-night',
-    number: '06',
-    titleHindi: 'ग्रैंड म्यूजिकल नाइट',
-    titleEnglish: 'Grand Musical Night',
+    number: '05',
+    titleHindi: 'भजन क्लबिंग कॉन्सर्ट',
+    titleEnglish: 'Bhajan Clubbing Concert',
     category: 'featured_night',
     illustration: '/assets_webp/musical-night.webp',
-    taglineHindi: 'उत्सव की भव्य संगीतमय समापन संध्या।',
-    taglineEnglish: 'The spectacular musical finale of Tulsi Mahotsav 2026.',
-    aboutHindi: 'तुलसी महोत्सव 2026 का भव्य संगीतमय समापन कार्यक्रम, जहाँ समापन समारोह के पश्चात संगीत एवं सांस्कृतिक तरंगों के साथ महोत्सव का यादगार समापन होगा।',
-    aboutEnglish: 'The grand musical finale following Samapan Samaroh, bringing two days of art, literature, and culture to an unforgettable close.',
+    taglineHindi: 'भक्ति और उत्साह की भव्य समापन संध्या।',
+    taglineEnglish: 'The electrifying musical closing of Tulsi Mahotsav 2026.',
+    aboutHindi: 'तुलसी महोत्सव 2026 का भव्य समापन कार्यक्रम, जहाँ समापन समारोह के पश्चात भजनों और क्लब बीट्स के संगम के साथ महोत्सव का यादगार समापन होगा।',
+    aboutEnglish: 'The electrifying closing event following Samapan Samaroh, bringing art, devotion, and clubbing beats to an unforgettable close.',
     date: '27 September 2026',
     time: '06:00 PM – 08:00 PM',
     venue: 'Stage Ground, MITS-DU Gwalior',

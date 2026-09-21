@@ -19,18 +19,14 @@ export default function TeamPage() {
   const coreLeadsTop = coreLeads.slice(0, 25);
   const coreLeadsBottom = coreLeads.slice(25);
 
-  const renderLeadershipCard = (member: TeamMember, idx: number, isAnanyaTiwari: boolean) => (
+  const renderLeadershipCard = (member: TeamMember, idx: number) => (
     <motion.div
       key={member.id}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: idx * 0.05 }}
-      className={`p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all w-full ${
-        isAnanyaTiwari
-          ? 'col-span-2 justify-self-center w-full max-w-[calc(50%-0.375rem)] lg:max-w-none'
-          : ''
-      }`}
+      className={`p-3.5 sm:p-5 rounded-2xl border border-[#B28A45]/40 bg-[#F3E8D0]/90 text-center flex flex-col items-center justify-between shadow-lg hover:border-[#651F27] transition-all w-full`}
     >
       {/* Member photo container with locked portrait 3:4 aspect ratio */}
       <div className="relative w-full aspect-[3/4] rounded-xl border-2 border-[#B28A45]/60 bg-[#191817] overflow-hidden shrink-0 shadow-md p-1 mb-2.5 sm:mb-3">
@@ -177,7 +173,7 @@ export default function TeamPage() {
           {/* MOBILE VIEW (< lg): Single continuous 2-column grid for all 7 leadership cards */}
           <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-7xl mx-auto lg:hidden">
             {leadership.map((member, idx) =>
-              renderLeadershipCard(member, idx, member.id === 'l7')
+              renderLeadershipCard(member, idx)
             )}
           </div>
 
@@ -186,15 +182,15 @@ export default function TeamPage() {
             {/* Row 1: Top 5 Leadership Members */}
             <div className="grid grid-cols-5 gap-6">
               {leadershipTop5.map((member, idx) =>
-                renderLeadershipCard(member, idx, false)
+                renderLeadershipCard(member, idx)
               )}
             </div>
 
-            {/* Row 2: Bottom 2 Members Centered (Gaurang & Ananya) with exact 1/5th column width */}
+            {/* Row 2: Bottom Members Centered with exact 1/5th column width */}
             <div className="flex justify-center gap-6">
               {leadershipBottom2.map((member, idx) => (
                 <div key={member.id} className="w-[calc(20%-1.2rem)] flex">
-                  {renderLeadershipCard(member, idx + 5, false)}
+                  {renderLeadershipCard(member, idx + 5)}
                 </div>
               ))}
             </div>
